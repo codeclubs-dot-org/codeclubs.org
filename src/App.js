@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 
 import HOME_PAGE from 'apps/HomePage/Loadable'
-import REGISTER from 'apps/HomePage/Loadable'
-import DONATE from 'apps/HomePage/Loadable'
+import REGISTER from 'apps/Register/Loadable'
+import DONATE from 'apps/Donate/Loadable'
 
 const App = () => {
 
@@ -12,7 +12,7 @@ const App = () => {
     <HelmetProvider>
       <Router>
         <Switch>
-          <Route path='/' component={HOME_PAGE} />
+          <Route exact path='/' component={HOME_PAGE} />
           <Route path='/register' component={REGISTER} />
           <Route path='/donate' component={DONATE} />
         </Switch>
