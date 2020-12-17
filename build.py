@@ -47,7 +47,7 @@ def backend():
         'DBPassword',
         'DBPort',
 
-        'SlackToken',
+        #'SlackToken',
 
         'AWS_BRANCH',
         'ProjectName',
@@ -68,9 +68,9 @@ def backend():
                 )
 
 
-def message_slack(channel, msg): 
+def message_slack(channel, msg):
     from slack import WebClient
-    from slack.errors import SlackApiError  
+    from slack.errors import SlackApiError
     client = WebClient(token=os.environ['SlackToken'])
     try:
         response = client.chat_postMessage(
@@ -99,7 +99,7 @@ def main():
         msg.append(f"Build Phase: {sys.argv[1]}")
     msg.append(f"Job ID: {os.environ['AWS_JOB_ID']}")
     msg.append(f"{sys.argv[1].title()} phase completed at {datetime.datetime.now(pytz.timezone('US/Mountain'))}")
-    msg = '\n'.join(msg)    
+    msg = '\n'.join(msg)
     message_slack('#amplify-notifications', msg)
 
 if __name__=="__main__":
