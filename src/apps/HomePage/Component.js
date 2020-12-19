@@ -20,6 +20,8 @@ export default function Component(props) {
             <Grid item xs={12}>
                 <Paper>
                     Welcome to CodeClubs.org!
+
+                    This is a test
                 </Paper>
             </Grid>
         </Grid>

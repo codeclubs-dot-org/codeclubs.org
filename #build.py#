@@ -3,7 +3,6 @@ import sys
 import datetime
 import pytz
 
-
 def frontend():
     import boto3
     srv_list = [
@@ -39,7 +38,6 @@ def frontend():
         ],
     )
 
-
 def backend():
     import boto3
     variables = {key: os.environ[key].strip() for key in [
@@ -49,7 +47,7 @@ def backend():
         'DBPassword',
         'DBPort',
 
-        # 'SlackToken',
+        #'SlackToken',
 
         'AWS_BRANCH',
         'ProjectName',
@@ -86,25 +84,23 @@ def message_slack(channel, msg):
         assert e.response["error"]
         print(f"Got an error: {e.response['error']}")
 
-
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == 'backend':
         backend()
     if len(sys.argv) > 1 and sys.argv[1] == 'frontend':
         frontend()
-    # msg = [
-    #     '--',
-    #     f"ProjectName: {os.environ['ProjectName']}",
-    #     f"Build Step for Git Branch: {os.environ['AWS_BRANCH']}",
-    #     ]
-    # msg.append(f"AppID: {os.environ['AWS_APP_ID']}")
-    # if len(sys.argv) > 1:
-    #     msg.append(f"Build Phase: {sys.argv[1]}")
-    # msg.append(f"Job ID: {os.environ['AWS_JOB_ID']}")
-    # msg.append(f"{sys.argv[1].title()} phase completed at {datetime.datetime.now(pytz.timezone('US/Mountain'))}")
-    # msg = '\n'.join(msg)
-    # message_slack('#amplify-notifications', msg)
+    msg = [
+        '--',
+        f"ProjectName: {os.environ['ProjectName']}",
+        f"Build Step for Git Branch: {os.environ['AWS_BRANCH']}",
+        ]
+    msg.append(f"AppID: {os.environ['AWS_APP_ID']}")
+    if len(sys.argv) > 1:
+        msg.append(f"Build Phase: {sys.argv[1]}")
+    msg.append(f"Job ID: {os.environ['AWS_JOB_ID']}")
+    msg.append(f"{sys.argv[1].title()} phase completed at {datetime.datetime.now(pytz.timezone('US/Mountain'))}")
+    msg = '\n'.join(msg)
+    message_slack('#amplify-notifications', msg)
 
-
-if __name__ == "__main__":
+if __name__=="__main__":
     main()
