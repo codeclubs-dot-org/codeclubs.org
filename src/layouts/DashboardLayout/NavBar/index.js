@@ -12,66 +12,10 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core'
-import {
-  AlertCircle as AlertCircleIcon,
-  BarChart as BarChartIcon,
-  Lock as LockIcon,
-  Settings as SettingsIcon,
-  ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  UserPlus as UserPlusIcon,
-  Users as UsersIcon
-} from 'react-feather'
+
 import NavItem from './NavItem'
+import useGlobal from 'store'
 
-const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  header: 'CodeClubs.org',
-  subHeader: 'Built for kids, not for profit',
-}
-
-const items = [
-  {
-    href: '/app/dashboard',
-    icon: BarChartIcon,
-    title: 'Dashboard'
-  },
-  {
-    href: '/app/customers',
-    icon: UsersIcon,
-    title: 'Customers'
-  },
-  {
-    href: '/app/products',
-    icon: ShoppingBagIcon,
-    title: 'Products'
-  },
-  {
-    href: '/app/account',
-    icon: UserIcon,
-    title: 'Account'
-  },
-  {
-    href: '/app/settings',
-    icon: SettingsIcon,
-    title: 'Settings'
-  },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
-  {
-    href: '/register',
-    icon: UserPlusIcon,
-    title: 'Register'
-  },
-  {
-    href: '/404',
-    icon: AlertCircleIcon,
-    title: 'Error'
-  }
-]
 
 const useStyles = makeStyles(() => ({
   mobileDrawer: {
@@ -92,6 +36,12 @@ const useStyles = makeStyles(() => ({
 const NavBar = ({ onMobileClose, openMobile }) => {
   const classes = useStyles()
   const location = useLocation()
+  const [globalState, globalActions] = useGlobal()
+
+  const {
+    user,
+    menuOptions
+  } = globalState
 
   useEffect(() => {
     if (openMobile && onMobileClose) {
@@ -112,31 +62,37 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         flexDirection="column"
         p={2}
       >
-        <Avatar
-          className={classes.avatar}
-          component={RouterLink}
-          src={user.avatar}
-          to="/app/account"
-        />
-        <Typography
-          className={classes.header}
-          color="textPrimary"
-          variant="h5"
-        >
-          {user.header}
-        </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-          fontStyle="italic"
-        >
-          {user.subHeader}
-        </Typography>
+        {user &&
+          <>
+            <Avatar
+              className={classes.avatar}
+              component={RouterLink}
+              src={user.avatar}
+              to="/app/account"
+            />
+            <Typography
+              className={classes.header}
+              color="textPrimary"
+              variant="h5"
+            >
+              {user.header}
+            </Typography>
+            <Typography
+              color="textSecondary"
+              variant="body2"
+              fontStyle="italic"
+            >
+              {user.subHeader}
+            </Typography>
+          </> || <>
+            <img src="/android-icon-48x48.png" />
+          </>
+        }
       </Box>
       <Divider />
       <Box p={2}>
         <List>
-          {items.map((item) => (
+          {menuOptions.map((item) => (
             <NavItem
               href={item.href}
               key={item.title}

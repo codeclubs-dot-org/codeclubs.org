@@ -7,9 +7,8 @@ import {
 } from '@material-ui/core'
 import { Pagination } from '@material-ui/lab'
 import Page from 'components/Page'
-import Toolbar from './Toolbar'
-import ProductCard from './ProductCard'
-import data from './data'
+import ClubCard from 'components/ClubCard'
+import Toolbar from '../../../components/HomePageToolbar'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,19 +17,18 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
   },
-  productCard: {
+  clubCard: {
     height: '100%'
   }
 }))
 
-const ProductList = () => {
+const ClubList = () => {
   const classes = useStyles()
-  const [products] = useState(data)
 
   return (
     <Page
       className={classes.root}
-      title="Products"
+      title="CodeClubs.org - Albuquerque NM USA"
     >
       <Container maxWidth={false}>
         <Toolbar />
@@ -39,20 +37,7 @@ const ProductList = () => {
             container
             spacing={3}
           >
-            {products.map((product) => (
-              <Grid
-                item
-                key={product.id}
-                lg={4}
-                md={6}
-                xs={12}
-              >
-                <ProductCard
-                  className={classes.productCard}
-                  product={product}
-                />
-              </Grid>
-            ))}
+            test
           </Grid>
         </Box>
         <Box
@@ -60,15 +45,11 @@ const ProductList = () => {
           display="flex"
           justifyContent="center"
         >
-          <Pagination
-            color="primary"
-            count={3}
-            size="small"
-          />
+
         </Box>
       </Container>
     </Page>
   )
 }
 
-export default ProductList
+export default ClubList

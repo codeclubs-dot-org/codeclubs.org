@@ -10,6 +10,10 @@ import NotFoundView from 'views/errors/NotFoundView'
 import ProductListView from 'views/product/ProductListView'
 import RegisterView from 'views/auth/RegisterView'
 import SettingsView from 'views/settings/SettingsView'
+import HomePageView from 'views/home/HomePageView'
+import MissionView from 'views/home/MissionView'
+import ContributeView from 'views/home/ContributeView'
+import ClubListView from 'views/home/ClubListView'
 
 const routes = [
   {
@@ -30,8 +34,11 @@ const routes = [
     children: [
       { path: 'login', element: <LoginView /> },
       { path: 'register', element: <RegisterView /> },
+      { path: 'mission', element: <MissionView /> },
+      { path: 'contribute', element: <ContributeView /> },
+      { path: 'clubs', element: <ClubListView /> },
       { path: '404', element: <NotFoundView /> },
-      { path: '/', element: <Navigate to="/app/dashboard" /> },
+      { path: '/', element: <HomePageView /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

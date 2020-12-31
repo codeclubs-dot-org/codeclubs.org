@@ -40,8 +40,17 @@ const TopBar = ({
     >
       <Toolbar>
         <RouterLink to="/">
-          <Logo />
+          <Logo style={{ maxHeight: 50 }} />
         </RouterLink>
+        <Box
+          alignItems="center"
+          display="flex"
+          flexDirection="column"
+          fontStyle="italic"
+          p={2}
+        >
+          Built for kids, not for profit
+        </Box>
         <Box flexGrow={1} />
         <Hidden mdDown>
           <IconButton color="inherit">

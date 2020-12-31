@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core'
 import { Pagination } from '@material-ui/lab'
 import Page from 'components/Page'
-import Toolbar from './Toolbar'
+import Toolbar from 'components/HomePageToolbar'
 import ProductCard from './ProductCard'
 import data from './data'
 
