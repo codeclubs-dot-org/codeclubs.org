@@ -2,10 +2,7 @@ import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
-<<<<<<< HEAD
 import useGlobal from 'store'
-=======
->>>>>>> f80799c... Adds new pages to repo
 import {
   Box,
   Button,
@@ -29,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 const Toolbar = ({ className, ...rest }) => {
   const classes = useStyles()
   const path = window.location.pathname
-<<<<<<< HEAD
   // eslint-disable-next-line
   const [globalState, globalActions] = useGlobal()
   const { featureFlags } = globalState
@@ -38,18 +34,12 @@ const Toolbar = ({ className, ...rest }) => {
     <div
       className={clsx(classes.root, className)}
       widget='HomePageToolbar'
-=======
-  return (
-    <div
-      className={clsx(classes.root, className)}
->>>>>>> f80799c... Adds new pages to repo
       {...rest}
     >
       <Box
         display="flex"
         justifyContent="flex-end"
       >
-<<<<<<< HEAD
         <RouterLink to="/">
           <Button className={path === '/' ? classes.selectedButton : classes.menuButton}>
             Home
@@ -85,19 +75,18 @@ const Toolbar = ({ className, ...rest }) => {
             </RouterLink>
           </>
         }
-=======
         <RouterLink to="/mission">
-          <Button className={path === '/mission' && classes.selectedButton || classes.menuButton}>
+          <Button className={path === '/mission' ? classes.selectedButton : classes.menuButton}>
             Our Mission
           </Button>
         </RouterLink>
         <RouterLink to="/contribute">
-          <Button className={path === '/contribute' && classes.selectedButton || classes.menuButton}>
+          <Button className={path === '/contribute' ? classes.selectedButton : classes.menuButton}>
             Contribute
           </Button>
         </RouterLink>
         <RouterLink to="/clubs">
-          <Button className={path === '/clubs' && classes.selectedButton || classes.menuButton}>
+          <Button className={path === '/clubs' ? classes.selectedButton : classes.menuButton}>
             Clubs
           </Button>
         </RouterLink>
@@ -110,7 +99,6 @@ const Toolbar = ({ className, ...rest }) => {
             Register
           </Button>
         </RouterLink>
->>>>>>> f80799c... Adds new pages to repo
       </Box>
     </div>
   )

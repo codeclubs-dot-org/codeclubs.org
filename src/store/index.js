@@ -20,8 +20,7 @@ import {
   Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
   User as UserIcon,
-  UserPlus as UserPlusIcon,
-  Users as UsersIcon
+  UserPlus as UserPlusIcon
 } from 'react-feather'
 
 import awsconfig from 'aws-exports'
