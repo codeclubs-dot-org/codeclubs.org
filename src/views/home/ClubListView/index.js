@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React from 'react'
+=======
+import React, { useState } from 'react'
+>>>>>>> f80799c... Adds new pages to repo
 import {
   Box,
   Container,
@@ -9,7 +13,11 @@ import { Pagination } from '@material-ui/lab'
 import Page from 'components/Page'
 import ClubCard from 'components/ClubCard'
 import Toolbar from 'components/HomePageToolbar'
+<<<<<<< HEAD
 import useGlobal from 'store'
+=======
+import data from './data'
+>>>>>>> f80799c... Adds new pages to repo
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,9 +33,13 @@ const useStyles = makeStyles((theme) => ({
 
 const ClubList = () => {
   const classes = useStyles()
+<<<<<<< HEAD
   // eslint-disable-next-line
   const [globalState, globalActions] = useGlobal()
   const { activeClubs } = globalState
+=======
+  const [clubs] = useState(data)
+>>>>>>> f80799c... Adds new pages to repo
 
   return (
     <Page
@@ -41,7 +53,11 @@ const ClubList = () => {
             container
             spacing={3}
           >
+<<<<<<< HEAD
             {activeClubs.map((club) => (
+=======
+            {clubs.map((club) => (
+>>>>>>> f80799c... Adds new pages to repo
               <Grid
                 item
                 key={club.id}
