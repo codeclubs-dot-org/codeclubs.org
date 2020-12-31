@@ -34,18 +34,23 @@ const Toolbar = ({ className, ...rest }) => {
         display="flex"
         justifyContent="flex-end"
       >
+        <RouterLink to="/">
+          <Button className={path === '/' ? classes.selectedButton : classes.menuButton}>
+            Home
+          </Button>
+        </RouterLink>
         <RouterLink to="/mission">
-          <Button className={path === '/mission' && classes.selectedButton || classes.menuButton}>
+          <Button className={path === '/mission' ? classes.selectedButton : classes.menuButton}>
             Our Mission
           </Button>
         </RouterLink>
         <RouterLink to="/contribute">
-          <Button className={path === '/contribute' && classes.selectedButton || classes.menuButton}>
+          <Button className={path === '/contribute' ? classes.selectedButton : classes.menuButton}>
             Contribute
           </Button>
         </RouterLink>
         <RouterLink to="/clubs">
-          <Button className={path === '/clubs' && classes.selectedButton || classes.menuButton}>
+          <Button className={path === '/clubs' ? classes.selectedButton : classes.menuButton}>
             Clubs
           </Button>
         </RouterLink>

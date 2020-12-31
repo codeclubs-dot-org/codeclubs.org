@@ -36,6 +36,7 @@ const useStyles = makeStyles(() => ({
 const NavBar = ({ onMobileClose, openMobile }) => {
   const classes = useStyles()
   const location = useLocation()
+  // eslint-disable-next-line 
   const [globalState, globalActions] = useGlobal()
 
   const {
@@ -62,7 +63,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         flexDirection="column"
         p={2}
       >
-        {user &&
+        {user ?
           <>
             <Avatar
               className={classes.avatar}
@@ -84,8 +85,8 @@ const NavBar = ({ onMobileClose, openMobile }) => {
             >
               {user.subHeader}
             </Typography>
-          </> || <>
-            <img src="/android-icon-48x48.png" />
+          </> : <>
+            <img src="/android-icon-48x48.png" alt="user avatar" />
           </>
         }
       </Box>

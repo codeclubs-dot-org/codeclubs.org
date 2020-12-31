@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Box,
   Container,
   Grid,
   makeStyles
 } from '@material-ui/core'
-import { Pagination } from '@material-ui/lab'
 import Page from 'components/Page'
-import ClubCard from 'components/ClubCard'
 import Toolbar from '../../../components/HomePageToolbar'
 
 const useStyles = makeStyles((theme) => ({
@@ -28,7 +26,7 @@ const ClubList = () => {
   return (
     <Page
       className={classes.root}
-      title="CodeClubs.org - Albuquerque NM USA"
+      title="CodeClubs.org - Albuquerque NM USA - Official CodeClubs.org Website"
     >
       <Container maxWidth={false}>
         <Toolbar />
