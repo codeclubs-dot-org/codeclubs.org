@@ -13,6 +13,17 @@ import {
   UserPlus as UserPlusIcon
 } from 'react-feather'
 
+import {
+  AlertCircle as AlertCircleIcon,
+  BarChart as BarChartIcon,
+  Lock as LockIcon,
+  Settings as SettingsIcon,
+  ShoppingBag as ShoppingBagIcon,
+  User as UserIcon,
+  UserPlus as UserPlusIcon,
+  Users as UsersIcon
+} from 'react-feather'
+
 import awsconfig from 'aws-exports'
 const environment = awsconfig.aws_cloud_logic_custom[0].endpoint.split('/').pop()
 
