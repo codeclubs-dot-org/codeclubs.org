@@ -16,8 +16,8 @@ const Footer = (props) => {
                 href='#'
                 target='new'
               >
-                Terms&nbsp;of&nbsp;Service
-            </a>&nbsp;|&nbsp;<a
+                Terms&nbspof&nbspService
+            </a>&nbsp|&nbsp<a
                 href='#'
                 target='new'
               >
