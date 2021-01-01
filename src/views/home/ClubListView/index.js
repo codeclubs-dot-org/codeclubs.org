@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Box,
   Container,
@@ -9,7 +9,7 @@ import { Pagination } from '@material-ui/lab'
 import Page from 'components/Page'
 import ClubCard from 'components/ClubCard'
 import Toolbar from 'components/HomePageToolbar'
-import data from './data'
+import useGlobal from 'store'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +25,9 @@ const useStyles = makeStyles((theme) => ({
 
 const ClubList = () => {
   const classes = useStyles()
-  const [clubs] = useState(data)
+  // eslint-disable-next-line
+  const [globalState, globalActions] = useGlobal()
+  const { activeClubs } = globalState
 
   return (
     <Page
@@ -39,7 +41,7 @@ const ClubList = () => {
             container
             spacing={3}
           >
-            {clubs.map((club) => (
+            {activeClubs.map((club) => (
               <Grid
                 item
                 key={club.id}

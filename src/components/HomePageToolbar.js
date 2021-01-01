@@ -58,7 +58,7 @@ const Toolbar = ({ className, ...rest }) => {
           <Button
             color="primary"
             variant="contained"
-            classNAme={classes.menuButton}
+            className={classes.menuButton}
           >
             Register
           </Button>

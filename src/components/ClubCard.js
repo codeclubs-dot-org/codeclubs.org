@@ -63,6 +63,13 @@ const ClubCard = ({ className, club, ...rest }) => {
         >
           {club.description}
         </Typography>
+        <Typography
+          align="center"
+          color="textPrimary"
+          variant="body1"
+        >
+          Seats Available: {club.numSeats}
+        </Typography>
       </CardContent>
       <Box flexGrow={1} />
       <Divider />
