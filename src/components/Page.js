@@ -8,15 +8,18 @@ const Page = forwardRef(({
   ...rest
 }, ref) => {
   return (
-    <div
-      ref={ref}
-      {...rest}
-    >
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
-      {children}
-    </div>
+    <>
+      <div
+        ref={ref}
+        {...rest}
+        widget='Page'
+      >
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
+        {children}
+      </div>
+    </>
   )
 })
 

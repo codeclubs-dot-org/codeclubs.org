@@ -33,7 +33,7 @@ const MainLayout = () => {
   const classes = useStyles()
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} widget='MainLayout'>
       <TopBar />
       <div className={classes.wrapper}>
         <div className={classes.contentContainer}>

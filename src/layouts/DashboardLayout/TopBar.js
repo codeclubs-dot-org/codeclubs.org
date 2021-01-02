@@ -37,6 +37,7 @@ const TopBar = ({
       className={clsx(classes.root, className)}
       elevation={0}
       {...rest}
+      widget='Toolbar'
     >
       <Toolbar>
         <RouterLink to="/">

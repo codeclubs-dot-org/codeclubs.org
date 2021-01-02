@@ -28,6 +28,7 @@ const Toolbar = ({ className, ...rest }) => {
   return (
     <div
       className={clsx(classes.root, className)}
+      widget='HomePageToolbar'
       {...rest}
     >
       <Box
