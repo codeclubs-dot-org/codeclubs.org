@@ -11,7 +11,7 @@ import { Alert } from '@material-ui/lab'
 import Page from 'components/Page'
 import Toolbar from 'components/HomePageToolbar'
 import Footer from 'components/Footer'
-
+import clsx from 'clsx'
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
