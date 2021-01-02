@@ -39,6 +39,7 @@ const initialState = {
   // },
   featureFlags: {
     showClubRegistration: false,
+    showContribute: false,
     showDashboard: false
   },
 

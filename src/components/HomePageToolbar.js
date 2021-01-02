@@ -2,6 +2,7 @@ import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
+import useGlobal from 'store'
 import {
   Box,
   Button,
@@ -25,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
 const Toolbar = ({ className, ...rest }) => {
   const classes = useStyles()
   const path = window.location.pathname
+  // eslint-disable-next-line
+  const [globalState, globalActions] = useGlobal()
+  const { featureFlags } = globalState
+
   return (
     <div
       className={clsx(classes.root, className)}
@@ -45,25 +50,31 @@ const Toolbar = ({ className, ...rest }) => {
             Our Mission
           </Button>
         </RouterLink>
-        <RouterLink to="/contribute">
-          <Button className={path === '/contribute' ? classes.selectedButton : classes.menuButton}>
-            Contribute
-          </Button>
-        </RouterLink>
-        <RouterLink to="/clubs">
-          <Button className={path === '/clubs' ? classes.selectedButton : classes.menuButton}>
-            Clubs
-          </Button>
-        </RouterLink>
-        <RouterLink to="/register">
-          <Button
-            color="primary"
-            variant="contained"
-            className={classes.menuButton}
-          >
-            Register
-          </Button>
-        </RouterLink>
+        {featureFlags.showContribute &&
+          <RouterLink to="/contribute">
+            <Button className={path === '/contribute' ? classes.selectedButton : classes.menuButton}>
+              Contribute
+            </Button>
+          </RouterLink>
+        }
+        {featureFlags.showClubRegistration &&
+          <>
+            <RouterLink to="/clubs">
+              <Button className={path === '/clubs' ? classes.selectedButton : classes.menuButton}>
+                Clubs
+              </Button>
+            </RouterLink>
+            <RouterLink to="/register">
+              <Button
+                color="primary"
+                variant="contained"
+                className={classes.menuButton}
+              >
+                Register
+              </Button>
+            </RouterLink>
+          </>
+        }
       </Box>
     </div>
   )
