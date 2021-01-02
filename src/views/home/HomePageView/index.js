@@ -11,7 +11,7 @@ import { Alert } from '@material-ui/lab'
 import Page from 'components/Page'
 import Toolbar from 'components/HomePageToolbar'
 import Footer from 'components/Footer'
-import clsx from 'clsx'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
@@ -94,7 +94,6 @@ const Component = () => {
             until further notice. We now offer virtual courses to continue serving our
             community during the pandemic.
           </Alert>
-
           <Box mt={3}>
             <Grid
               container
@@ -142,7 +141,6 @@ const Component = () => {
                   </Box>
                 </Paper>
               </Grid>
-
             </Grid>
           </Box>
         </Container>
