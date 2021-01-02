@@ -3,7 +3,6 @@ import {
   Box,
   Container,
   Grid,
-<<<<<<< HEAD
   makeStyles,
   Paper,
   Typography
@@ -11,18 +10,11 @@ import {
 import Page from 'components/Page'
 import Toolbar from 'components/HomePageToolbar'
 import Footer from 'components/Footer'
-=======
-  makeStyles
-} from '@material-ui/core'
-import Page from 'components/Page'
-import Toolbar from 'components/HomePageToolbar'
->>>>>>> f80799c... Adds new pages to repo
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
     minHeight: '100%',
-<<<<<<< HEAD
     paddingTop: theme.spacing(3)
   },
   paper: {
@@ -54,20 +46,10 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const elevation = 0
-
-=======
-    paddingBottom: theme.spacing(3),
-    paddingTop: theme.spacing(3)
-  },
-}))
-
->>>>>>> f80799c... Adds new pages to repo
 const Component = () => {
   const classes = useStyles()
 
   return (
-<<<<<<< HEAD
     <>
       <Page
         className={classes.root}
@@ -197,31 +179,6 @@ const Component = () => {
         <Footer />
       </Page>
     </>
-=======
-    <Page
-      className={classes.root}
-      title="CodeClubs.org - Albuquerque NM USA"
-    >
-      <Container maxWidth={false}>
-        <Toolbar />
-        <Box mt={3}>
-          <Grid
-            container
-            spacing={3}
-          >
-            test
-          </Grid>
-        </Box>
-        <Box
-          mt={3}
-          display="flex"
-          justifyContent="center"
-        >
-          poop
-        </Box>
-      </Container>
-    </Page>
->>>>>>> f80799c... Adds new pages to repo
   )
 }
 
