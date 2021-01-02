@@ -8,11 +8,8 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: '100%',
-    paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3),
     marginTop: theme.spacing(3),
-    flexShrink: 0,
     textAlign: 'center',
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.text.primary
@@ -31,12 +28,12 @@ const Footer = (props) => {
             <Typography>
               CodeClubs ©{new Date().getFullYear()} |{' '}
               <a
-                href='#'
+                href='/TermsOfService'
                 target='new'
               >
                 Terms&nbsp;of&nbsp;Service
             </a>&nbsp;|&nbsp;<a
-                href='#'
+                href='/PrivacyPolicy'
                 target='new'
               >
                 Privacy

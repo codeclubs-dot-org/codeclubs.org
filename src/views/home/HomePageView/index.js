@@ -15,19 +15,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
     minHeight: '100%',
-    paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
-  },
-  clubCard: {
-    height: '100%'
-  },
-  parallaxText: {
-    background: 'white',
-    padding: 20,
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%,-50%)'
   }
 }))
 
@@ -73,16 +61,12 @@ const ClubList = () => {
               </Grid>
               <Grid item xs={12} sm={3}>
                 <Paper elevation={3} style={{ height: '100%' }}>
-
                   <br />Popular Links
-
-                <br />Youtube
-                <br />instagram
-                <br />facebook
-
-              </Paper>
+                  <br />Youtube
+                  <br />Instagram
+                  <br />Facebook
+                </Paper>
               </Grid>
-
             </Grid>
           </Box>
           <Box

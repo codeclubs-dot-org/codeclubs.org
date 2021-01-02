@@ -13,6 +13,8 @@ import SettingsView from 'views/settings/SettingsView'
 import HomePageView from 'views/home/HomePageView'
 import MissionView from 'views/home/MissionView'
 import ContributeView from 'views/home/ContributeView'
+import TermsView from 'views/home/TermsView'
+import PrivacyView from 'views/home/PrivacyView'
 import ClubListView from 'views/home/ClubListView'
 
 const routes = [
@@ -35,6 +37,8 @@ const routes = [
       { path: 'login', element: <LoginView /> },
       { path: 'register', element: <RegisterView /> },
       { path: 'mission', element: <MissionView /> },
+      { path: 'privacypolicy', element: <PrivacyView /> },
+      { path: 'termsofservice', element: <TermsView /> },
       { path: 'contribute', element: <ContributeView /> },
       { path: 'clubs', element: <ClubListView /> },
       { path: '404', element: <NotFoundView /> },
