@@ -49,8 +49,8 @@ export const context = {
     }
   },
   shallowEqual: (object1, object2) => {
-    const keys1 = Object.keys(object1);
-    const keys2 = Object.keys(object2);
+    const keys1 = Object.keys(object1)
+    const keys2 = Object.keys(object2)
     if (keys1.length !== keys2.length) {
       return false
     }
@@ -63,7 +63,7 @@ export const context = {
   },
   deepEqual: deepEqual,
   isObject: (object) => {
-    return object != null && typeof object === 'object';
+    return object != null && typeof object === 'object'
   },
   isEmpty: (obj) => {
     for (var i in obj) return false
@@ -76,30 +76,36 @@ export const context = {
       }
     }
     return true
-  }
+  },
+  getInitials: (name = '') => {
+    return name
+      .replace(/\s+/, ' ')
+      .split(' ')
+      .slice(0, 2)
+      .map((v) => v && v[0].toUpperCase())
+      .join('')
+  },
 }
 
 function deepEqual(object1, object2) {
-  const keys1 = Object.keys(object1);
-  const keys2 = Object.keys(object2);
+  const keys1 = Object.keys(object1)
+  const keys2 = Object.keys(object2)
 
   if (keys1.length !== keys2.length) {
-    return false;
+    return false
   }
 
   for (const key of keys1) {
-    const val1 = object1[key];
-    const val2 = object2[key];
-    const areObjects = context.isObject(val1) && context.isObject(val2);
+    const val1 = object1[key]
+    const val2 = object2[key]
+    const areObjects = context.isObject(val1) && context.isObject(val2)
     if (
       (areObjects && !deepEqual(val1, val2)) ||
       (!areObjects && val1 !== val2)
     ) {
-      return false;
+      return false
     }
   }
 }
 
 export default context
-
-
