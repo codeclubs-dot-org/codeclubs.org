@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 24,
     marginRight: 24
   },
-  bgtest: {
+  bgImage: {
     position: 'relative',
     height: '100vh',
     width: '100%',
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
       right: '0px',
       bottom: '0px',
       left: '0px',
-      backgroundColor: 'rgba(0,0,0)',
+      backgroundColor: 'rgba(0,0,0,.73)',
     }
   }
 }))
@@ -69,34 +69,31 @@ const Component = () => {
             >
               <Grid item xs={12} sm={9}>
                 <Paper elevation={elevation} className={classes.paper}>
-                  <Box >
-                    <Typography>
-                      We offer various Code Clubs at various locations throughout Albuquerque, NM.
-                      These clubs are open to kids ages 11+. Club registration is ongoing, so don’t
-                      feel discouraged to sign up in the middle of a semester.
-                  </Typography>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    m={3}
+                  >
+                    <Typography variant="h2">
+                      Our Mission
+                    </Typography>
                   </Box>
-                  <Box>
-                    <Typography>
-                      Please note that in response to COVID-19 all physical clubs are currently suspended
-                      until further notice. We now offer virtual courses to continue serving our
-                      community during the pandemic. Our virtual courses are both live and recorded.
-                  </Typography>
-                  </Box>
-                  <Box>
-                    <Typography>
-                      Once you sign up via our registration forms, you will be emailed a link to
-                      join the club.  Please visit our YouTube channel for additional content.
-                  </Typography>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    m={3}
+                  >
+                    <Typography variant="body1">
+                      Our mission is to improve access to computer science education in New Mexico through fun, free, and inclusive clubs, classes, and workshops.
+                    </Typography>
                   </Box>
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={3}>
                 <Paper elevation={elevation} className={classes.paper}>
-                  <br />Popular Links
-                  <br />Youtube
-                  <br />Instagram
-                  <br />Facebook
+
                 </Paper>
               </Grid>
             </Grid>
@@ -110,40 +107,74 @@ const Component = () => {
               container
               spacing={3}
             >
-              <Grid item xs={12} sm={3}>
+              <Grid item xs={12}>
                 <Paper elevation={elevation} className={classes.paper}>
-                  <br />Popular Links
-                  <br />Youtube
-                  <br />instagram
-                  <br />facebook
-              </Paper>
-              </Grid>
-              <Grid item xs={12} sm={9}>
-                <Paper elevation={elevation} className={classes.paper}>
-                  <Box>
-                    <Typography>
-                      We offer various Code Clubs at various locations throughout Albuquerque, NM.
-                      These clubs are open to kids ages 11+. Club registration is ongoing, so don’t
-                      feel discouraged to sign up in the middle of a semester.
-                    </Typography>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    m={3}
+                  >
+                    <Typography variant="body1">
+                      We offer Girls Who Code Clubs throughout the city of Albuquerque, and one day TechGirlz workshops throughout the year. We have ongoing partnerships with local and nationwide organizations such as Girls Who Code, TechGirlz, NCWIT, Girl Scouts New Mexico Trails, The City of Albuquerque, APS, and others. Together, we are working to close the gender gap in technology and change the image of what a programmer looks like and does.                    </Typography>
                   </Box>
-                  <Box>
-                    <Typography>
-                      Please note that in response to COVID-19 all physical clubs are currently suspended
-                      until further notice. We now offer virtual courses to continue serving our
-                      community during the pandemic. Our virtual courses are both live and recorded.
-                    </Typography>
-                  </Box>
-                  <Box>
-                    <Typography>
-                      Once you sign up via our registration forms, you will be emailed a link to
-                      join the club.  Please visit our YouTube channel for additional content.
-                    </Typography>
-                  </Box>
-
                 </Paper>
               </Grid>
-
+            </Grid>
+          </Box>
+          <Box
+            mt={3}
+            display="flex"
+            justifyContent="center"
+          >
+            <Grid
+              container
+              spacing={3}
+            >
+              <Grid item xs={12} sm={4}>
+                <Paper elevation={elevation} className={classes.paper}>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    m={3}
+                  >
+                    <Typography variant="h3">
+                      Our Values
+                    </Typography>
+                  </Box>
+                  <ul>
+                    <li>Diversity and Inclusion </li>
+                    <li>Bravery and Resilience - we teach bravery not perfection </li>
+                    <li>Curiosity</li>
+                    <li>Empathy and Respect</li>
+                  </ul>
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={8}>
+                <Paper elevation={elevation} className={classes.paper}>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    m={3}
+                  >
+                    <Typography variant="h2">
+                      Want to learn more?
+                    </Typography>
+                  </Box>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    m={3}
+                  >
+                    <Typography variant="body1">
+                      We welcome community members to attend our monthly board meetings which happen every third Saturday at 11am. Contact us to let us know if you’ll be attending and we will give you the location details.
+                    </Typography>
+                  </Box>
+                </Paper>
+              </Grid>
             </Grid>
           </Box>
         </Container>
