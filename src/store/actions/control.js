@@ -34,19 +34,11 @@ export const setPageConfig = (store, config) => {
   mergeState(store, { page: { config: config } }, true)
 }
 
-export const submitSendReceipt = async (store) => {
-  const { state } = store
-  store.actions.api.performApi({
-    apiName: 'Events',
-    apiPath: '/event',
-    apiAction: 'send-receipt',
-    apiPayload: { ...state }
-  })
-}
-
 export const submitDonateForm = async (store, braintree_instance) => {
+  const newErrors = {}
 
-  let nonce, newErrors = {}, okToSubmit = true
+  let nonce
+  let okToSubmit = true
 
   let {
     errors,
@@ -238,103 +230,4 @@ export const mergeState = async (store, state, overwriteArray = false) => {
   } else {
     store.setState(deepmerge(store.state, state))
   }
-}
-
-export const updateAmount = async (store) => {
-  let state = {}, total_charge_amount = 0
-  if (store.state.page.spot.value) {
-    total_charge_amount += parseFloat(store.state.page.spot.value)
-  }
-  if (store.state.page.golf.value) {
-    total_charge_amount += parseFloat(store.state.page.golf.value)
-  }
-  if (total_charge_amount < 5) {
-    state.page = {
-      spot: {
-        value_error: "There is a $5 minimum donation."
-      },
-      form: {
-        total_charge_amount: 0
-      }
-    }
-  } else {
-    state.page = {
-      form: {
-        total_charge_amount: total_charge_amount
-      }
-    }
-  }
-
-
-  mergeState(store, state, true)
-}
-
-// Braintree Line Item keys
-// const item_keys = [
-//   'quantity',
-//   'name',
-//   'description',
-//   'kind',
-//   'unit_amount',
-//   'unit_tax_amount',
-//   'discount_amount',
-//   'total_amount',
-//   'unit_of_measure',
-//   'product_code',
-//   'commodity_code',
-//   'url',
-//   'tax_amount',
-// ]
-
-
-export const updateLineItems = async (store) => {
-  const line_items = {
-    braintree: [],
-    paypal: []
-  }
-
-  if (store.state.page.spot.value) {
-    line_items.braintree.push({
-      'quantity': 1,
-      'name': 'Spot Donation',
-      'description': 'Spot Donation',
-      'kind': 'debit',
-      'unit_amount': parseFloat(store.state.page.spot.value),
-      'total_amount': parseFloat(store.state.page.spot.value),
-      'product_code': 'SPOT',
-      'commodity_code': 'SPOT',
-    })
-    line_items.paypal.push({
-      'quantity': 1,
-      'name': 'Spot Donation',
-      'description': 'Spot Donation',
-      'kind': 'debit',
-      'unitAmount': parseFloat(store.state.page.spot.value),
-      'productCode': 'SPOT',
-    })
-  }
-
-  if (store.state.page.golf.option && store.state.page.golf.option) {
-    line_items.braintree.push({
-      'quantity': 1,
-      'name': store.state.page.golf.option,
-      'description': store.state.page.golf.option,
-      'kind': 'debit',
-      'unit_amount': parseFloat(store.state.page.golf.value),
-      'total_amount': parseFloat(store.state.page.golf.value),
-      'product_code': 'GOLF',
-      'commodity_code': 'GOLF',
-    })
-    line_items.paypal.push({
-      'quantity': 1,
-      'name': store.state.page.golf.option,
-      'description': store.state.page.golf.option,
-      'kind': 'debit',
-      'unitAmount': parseFloat(store.state.page.golf.value),
-      'productCode': 'GOLF',
-    })
-  }
-
-  mergeState(store, { page: { line_items } }, true)
-
 }
