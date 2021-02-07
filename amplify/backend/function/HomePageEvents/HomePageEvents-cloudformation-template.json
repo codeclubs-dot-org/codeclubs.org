@@ -70,8 +70,8 @@
         ],
         "Timeout": "25",
         "Code": {
-          "S3Bucket": "amplify-homepage-develop-164434-deployment",
-          "S3Key": "amplify-builds/HomePageEvents-6a58594c39736a755859-build.zip"
+          "S3Bucket": "amplify-homepage-production-141547-deployment",
+          "S3Key": "amplify-builds/HomePageEvents-6e674c6e7a4332564773-build.zip"
         }
       }
     },

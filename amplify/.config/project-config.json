@@ -2,7 +2,7 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "HomePage",
+  "projectName": "codeclubs.org",
   "version": "3.0",
   "frontend": "javascript",
   "javascript": {

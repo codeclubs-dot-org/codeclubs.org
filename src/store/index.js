@@ -50,6 +50,11 @@ const initialState = {
       title: 'Dashboard'
     },
     {
+      href: '/app/team',
+      icon: BarChartIcon,
+      title: 'Teams'
+    },
+    {
       href: '/app/classes',
       icon: ShoppingBagIcon,
       title: 'Classes'
@@ -87,7 +92,7 @@ const initialState = {
       registrationDeadline: 'Jan 11, 2021',
       startDate: 'Jan 28, 2021',
       description: 'Beginning Arduino',
-      media: '/static/images/products/product_1.png',
+      media: 'https://codeclubs-public.s3-us-west-2.amazonaws.com/Board+Member+%2B+Facilitator+Headshots/Avatar.jpg',
       title: 'Intro to Arduino',
       numSeats: '7'
     }, {

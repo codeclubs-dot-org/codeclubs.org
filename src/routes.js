@@ -16,6 +16,7 @@ import ContributeView from 'views/home/ContributeView'
 import TermsView from 'views/home/TermsView'
 import PrivacyView from 'views/home/PrivacyView'
 import ClubListView from 'views/home/ClubListView'
+import TeamView from 'views/home/TeamView'
 
 const routes = [
   {
@@ -25,6 +26,7 @@ const routes = [
       { path: 'account', element: <AccountView /> },
       { path: 'customers', element: <CustomerListView /> },
       { path: 'dashboard', element: <DashboardView /> },
+      { path: 'team', element: <TeamView /> },
       { path: 'products', element: <ProductListView /> },
       { path: 'settings', element: <SettingsView /> },
       { path: '*', element: <Navigate to="/404" /> }
@@ -38,6 +40,7 @@ const routes = [
       { path: 'register', element: <RegisterView /> },
       { path: 'mission', element: <MissionView /> },
       { path: 'privacypolicy', element: <PrivacyView /> },
+      { path: 'team', element: <TeamView /> },
       { path: 'termsofservice', element: <TermsView /> },
       { path: 'contribute', element: <ContributeView /> },
       { path: 'clubs', element: <ClubListView /> },
