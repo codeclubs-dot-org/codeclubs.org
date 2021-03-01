@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Container,
@@ -10,6 +10,7 @@ import Page from 'components/Page'
 import ClubCard from 'components/ClubCard'
 import Toolbar from 'components/HomePageToolbar'
 import useGlobal from 'store'
+import data from './data'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,6 +26,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ClubList = () => {
   const classes = useStyles()
+  // eslint-disable-next-line
+  const [clubs] = useState(data)
   // eslint-disable-next-line
   const [globalState, globalActions] = useGlobal()
   const { activeClubs } = globalState

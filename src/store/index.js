@@ -1,5 +1,5 @@
 import React from 'react'
-import useGlobalHook from 'use-global-hook'
+import globalHook from 'use-global-hook'
 import * as actions from './actions'
 import { v4 as uuid } from 'uuid'
 
@@ -127,6 +127,6 @@ const initialState = {
 
 }
 
-const useGlobal = useGlobalHook(React, initialState, actions)
+const useGlobal = globalHook(React, initialState, actions)
 
 export default useGlobal
