@@ -75,25 +75,6 @@ const Toolbar = ({ className, ...rest }) => {
             </RouterLink>
           </>
         }
-        <RouterLink to="/contribute">
-          <Button className={path === '/contribute' ? classes.selectedButton : classes.menuButton}>
-            Contribute
-          </Button>
-        </RouterLink>
-        <RouterLink to="/clubs">
-          <Button className={path === '/clubs' ? classes.selectedButton : classes.menuButton}>
-            Clubs
-          </Button>
-        </RouterLink>
-        <RouterLink to="/register">
-          <Button
-            color="primary"
-            variant="contained"
-            className={classes.menuButton}
-          >
-            Register
-          </Button>
-        </RouterLink>
       </Box>
     </div>
   )
