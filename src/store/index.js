@@ -1,17 +1,7 @@
 import React from 'react'
-import useGlobalHook from 'use-global-hook'
+import globalHook from 'use-global-hook'
 import * as actions from './actions'
 import { v4 as uuid } from 'uuid'
-
-import {
-  AlertCircle as AlertCircleIcon,
-  BarChart as BarChartIcon,
-  Lock as LockIcon,
-  Settings as SettingsIcon,
-  ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  UserPlus as UserPlusIcon
-} from 'react-feather'
 
 import {
   AlertCircle as AlertCircleIcon,
@@ -137,6 +127,6 @@ const initialState = {
 
 }
 
-const useGlobal = useGlobalHook(React, initialState, actions)
+const useGlobal = globalHook(React, initialState, actions)
 
 export default useGlobal

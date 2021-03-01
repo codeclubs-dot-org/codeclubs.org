@@ -46,6 +46,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
+const elevation = 0
+
 const Component = () => {
   const classes = useStyles()
 

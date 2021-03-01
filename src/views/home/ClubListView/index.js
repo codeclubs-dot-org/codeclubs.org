@@ -11,7 +11,6 @@ import ClubCard from 'components/ClubCard'
 import Toolbar from 'components/HomePageToolbar'
 import useGlobal from 'store'
 import data from './data'
-import useGlobal from 'store'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +43,8 @@ const ClubList = () => {
           <Grid
             container
             spacing={3}
-            {...activeClubs.map((club) => (
+          >
+            {activeClubs.map((club) => (
               <Grid
                 item
                 key={club.id}
@@ -57,7 +57,7 @@ const ClubList = () => {
                   club={club}
                 />
               </Grid>
-            ))}>
+            ))}
           </Grid>
         </Box>
         <Box
