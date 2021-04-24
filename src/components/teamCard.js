@@ -7,9 +7,9 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 360,
-    maxHeight: 360,
-    borderRadius: "1em",
+    maxWidth: "22.5rem",
+    maxHeight: "22.5rem",
+    borderRadius: "1rem",
     backgroundColor: "#aeda4e",
     "&:after": {
       //TO-DO add dark blue rectangle code here
@@ -21,28 +21,13 @@ const useStyles = makeStyles({
     height: 180,
     margin: "auto",
     marginTop: "3em",
-    marginBottom: "1em",
+    marginBottom: "1rem",
   },
 });
 
 export default function MediaCard(props) {
   const classes = useStyles();
-  const { name, title, imgLink, color } = props;
-  let cardColor;
-  switch (color) {
-    case "blue":
-      cardColor = classes.blue;
-      break;
-    case "pink":
-      cardColor = classes.pink;
-      break;
-    case "green":
-      cardColor = classes.green;
-      break;
-    case "yellow":
-      cardColor = classes.yellow;
-      break;
-  }
+  const { name, title, imgLink } = props;
   return (
     <Card className={classes.root}>
       <CardMedia

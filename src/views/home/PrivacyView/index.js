@@ -26,7 +26,6 @@ const Component = () => {
       <Container maxWidth={false}>
         <Box mt={3}>
           <Typography variant="h1">Privacy Policy</Typography>
-          <Typography variant="p">Last updated: March 01, 2021. </Typography>
           <Typography variant="p">
             This Privacy Policy describes Our policies and procedures on the
             collection, use and disclosure of Your information when You use the
@@ -589,12 +588,10 @@ const Component = () => {
           </Typography>
           <List>
             <ListItem>
-              <Typography variant="p">
-                By email: pperez@codeclubs.org
-              </Typography>
+              <a href="mailto:pperez@codeclubs.org">pperez@codeclubs.org</a>
             </ListItem>
             <ListItem>
-              <Typography variant="p">By phone number: 505-600-1775</Typography>
+              <a href="tel:5056001775">505-600-1775</a>
             </ListItem>
           </List>
         </Box>
