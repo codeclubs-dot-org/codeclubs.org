@@ -92,12 +92,12 @@ const TrafficByDevice = ({ className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title='Traffic by Device' />
       <Divider />
       <CardContent>
         <Box
           height={300}
-          position="relative"
+          position='relative'
         >
           <Doughnut
             data={data}
@@ -105,8 +105,8 @@ const TrafficByDevice = ({ className, ...rest }) => {
           />
         </Box>
         <Box
-          display="flex"
-          justifyContent="center"
+          display='flex'
+          justifyContent='center'
           mt={2}
         >
           {devices.map(({
@@ -118,18 +118,18 @@ const TrafficByDevice = ({ className, ...rest }) => {
             <Box
               key={title}
               p={1}
-              textAlign="center"
+              textAlign='center'
             >
-              <Icon color="action" />
+              <Icon color='action' />
               <Typography
-                color="textPrimary"
-                variant="body1"
+                color='textPrimary'
+                variant='body1'
               >
                 {title}
               </Typography>
               <Typography
                 style={{ color }}
-                variant="h2"
+                variant='h2'
               >
                 {value}
                 %

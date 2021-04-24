@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '100%',
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
-  },
+  }
 }))
 
 const Component = () => {
@@ -23,7 +23,7 @@ const Component = () => {
   return (
     <Page
       className={classes.root}
-      title="CodeClubs.org - Albuquerque NM USA"
+      title='CodeClubs.org - Albuquerque NM USA'
     >
       <p>test</p>
     </Page>

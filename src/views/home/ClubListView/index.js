@@ -35,7 +35,7 @@ const ClubList = () => {
   return (
     <Page
       className={classes.root}
-      title="CodeClubs.org - Albuquerque NM USA"
+      title='CodeClubs.org - Albuquerque NM USA'
     >
       <Container maxWidth={false}>
         <Toolbar />
@@ -62,13 +62,13 @@ const ClubList = () => {
         </Box>
         <Box
           mt={3}
-          display="flex"
-          justifyContent="center"
+          display='flex'
+          justifyContent='center'
         >
           <Pagination
-            color="primary"
+            color='primary'
             count={3}
-            size="small"
+            size='small'
           />
         </Box>
       </Container>

@@ -1,34 +1,34 @@
-import React from "react";
-import { Box, Container, Grid, makeStyles } from "@material-ui/core";
-import { Pagination } from "@material-ui/lab";
-import Page from "components/Page";
-import ClubCard from "components/ClubCard";
-import PersonCard from "components/PersonCard";
-import Toolbar from "components/HomePageToolbar";
-import useGlobal from "store";
+import React from 'react'
+import { Box, Container, Grid, makeStyles } from '@material-ui/core'
+import { Pagination } from '@material-ui/lab'
+import Page from 'components/Page'
+import ClubCard from 'components/ClubCard'
+import PersonCard from 'components/PersonCard'
+import Toolbar from 'components/HomePageToolbar'
+import useGlobal from 'store'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.dark,
-    minHeight: "100%",
+    minHeight: '100%',
     paddingBottom: theme.spacing(3),
-    paddingTop: theme.spacing(3),
+    paddingTop: theme.spacing(3)
   },
   clubCard: {
-    height: "100%",
-  },
-}));
+    height: '100%'
+  }
+}))
 
 const ClubList = () => {
-  const classes = useStyles();
+  const classes = useStyles()
   // eslint-disable-next-line
   const [globalState, globalActions] = useGlobal();
-  const { activeClubs } = globalState;
+  const { activeClubs } = globalState
 
   return (
     <Page
       className={classes.root}
-      title="Team View - CodeClubs.org - Albuquerque NM USA"
+      title='Team View - CodeClubs.org - Albuquerque NM USA'
     >
       <Container maxWidth={false}>
         <Toolbar />
@@ -43,22 +43,22 @@ const ClubList = () => {
               <PersonCard
                 className={classes.clubCard}
                 club={{
-                  startDate: "Dec 01, 2016",
-                  description: "Paul Perez",
+                  startDate: 'Dec 01, 2016',
+                  description: 'Paul Perez',
                   media:
-                    "https://codeclubs-public.s3-us-west-2.amazonaws.com/Board+Member+%2B+Facilitator+Headshots/Avatar.jpg",
-                  title: "Treasurer",
+                    'https://codeclubs-public.s3-us-west-2.amazonaws.com/Board+Member+%2B+Facilitator+Headshots/Avatar.jpg',
+                  title: 'Treasurer'
                 }}
               />
             </Grid>
           </Grid>
         </Box>
-        <Box mt={3} display="flex" justifyContent="center">
-          <Pagination color="primary" count={3} size="small" />
+        <Box mt={3} display='flex' justifyContent='center'>
+          <Pagination color='primary' count={3} size='small' />
         </Box>
       </Container>
     </Page>
-  );
-};
+  )
+}
 
-export default ClubList;
+export default ClubList

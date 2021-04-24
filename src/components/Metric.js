@@ -28,10 +28,10 @@ export const Component = (props) => {
     selected: false,
     text: '',
     option: '',
-    value: '',
+    value: ''
   }
 
-  function StyledRadio(props) {
+  function StyledRadio (props) {
     return (
       <Radio
         className={classes.root}
@@ -46,7 +46,7 @@ export const Component = (props) => {
     )
   }
 
-  function onChange(event) {
+  function onChange (event) {
     let { name, value, checked, type } = event.target
     if (type === 'checkbox') {
       value = checked
@@ -91,7 +91,7 @@ export const Component = (props) => {
             <Checkbox
               checked={metric.selected}
               onChange={onChange}
-              name="selected"
+              name='selected'
             />
           }
           label={label}
@@ -131,14 +131,13 @@ export const Component = (props) => {
                     name='value'
                     label='Other Amount'
                     fullWidth
-                    type="number"
+                    type='number'
                     onChange={onChange}
                     value={metric.value}
                     error={metric.other_error}
-                    helperText={"Required"}
+                    helperText='Required'
                   />
-                </Grid>
-              }
+                </Grid>}
             </Grid>
           </RadioGroup>
         </FormControl>

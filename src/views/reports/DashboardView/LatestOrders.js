@@ -101,7 +101,7 @@ const LatestOrders = ({ className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader title="Latest Orders" />
+      <CardHeader title='Latest Orders' />
       <Divider />
       <PerfectScrollbar>
         <Box minWidth={800}>
@@ -114,14 +114,14 @@ const LatestOrders = ({ className, ...rest }) => {
                 <TableCell>
                   Customer
                 </TableCell>
-                <TableCell sortDirection="desc">
+                <TableCell sortDirection='desc'>
                   <Tooltip
                     enterDelay={300}
-                    title="Sort"
+                    title='Sort'
                   >
                     <TableSortLabel
                       active
-                      direction="desc"
+                      direction='desc'
                     >
                       Date
                     </TableSortLabel>
@@ -149,9 +149,9 @@ const LatestOrders = ({ className, ...rest }) => {
                   </TableCell>
                   <TableCell>
                     <Chip
-                      color="primary"
+                      color='primary'
                       label={order.status}
-                      size="small"
+                      size='small'
                     />
                   </TableCell>
                 </TableRow>
@@ -161,15 +161,15 @@ const LatestOrders = ({ className, ...rest }) => {
         </Box>
       </PerfectScrollbar>
       <Box
-        display="flex"
-        justifyContent="flex-end"
+        display='flex'
+        justifyContent='flex-end'
         p={2}
       >
         <Button
-          color="primary"
+          color='primary'
           endIcon={<ArrowRightIcon />}
-          size="small"
-          variant="text"
+          size='small'
+          variant='text'
         >
           View all
         </Button>

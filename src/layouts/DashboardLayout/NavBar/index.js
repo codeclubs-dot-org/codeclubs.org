@@ -16,7 +16,6 @@ import {
 import NavItem from './NavItem'
 import useGlobal from 'store'
 
-
 const useStyles = makeStyles(() => ({
   mobileDrawer: {
     width: 256
@@ -36,7 +35,7 @@ const useStyles = makeStyles(() => ({
 const NavBar = ({ onMobileClose, openMobile }) => {
   const classes = useStyles()
   const location = useLocation()
-  // eslint-disable-next-line 
+  // eslint-disable-next-line
   const [globalState, globalActions] = useGlobal()
 
   const {
@@ -53,42 +52,41 @@ const NavBar = ({ onMobileClose, openMobile }) => {
 
   const content = (
     <Box
-      height="100%"
-      display="flex"
-      flexDirection="column"
+      height='100%'
+      display='flex'
+      flexDirection='column'
     >
       <Box
-        alignItems="center"
-        display="flex"
-        flexDirection="column"
+        alignItems='center'
+        display='flex'
+        flexDirection='column'
         p={2}
       >
-        {user ?
-          <>
+        {user
+          ? <>
             <Avatar
               className={classes.avatar}
               component={RouterLink}
               src={user.avatar}
-              to="/app/account"
+              to='/app/account'
             />
             <Typography
               className={classes.header}
-              color="textPrimary"
-              variant="h5"
+              color='textPrimary'
+              variant='h5'
             >
               {user.header}
             </Typography>
             <Typography
-              color="textSecondary"
-              variant="body2"
-              fontStyle="italic"
+              color='textSecondary'
+              variant='body2'
+              fontStyle='italic'
             >
               {user.subHeader}
             </Typography>
-          </> : <>
-            <img src="/android-icon-48x48.png" alt="user avatar" />
-          </>
-        }
+            </> : <>
+            <img src='/android-icon-48x48.png' alt='user avatar' />
+                </>}
       </Box>
       <Divider />
       <Box p={2}>
@@ -107,58 +105,58 @@ const NavBar = ({ onMobileClose, openMobile }) => {
       <Box
         p={2}
         m={2}
-        bgcolor="background.dark"
+        bgcolor='background.dark'
       >
         <Typography
-          align="center"
+          align='center'
           gutterBottom
-          variant="h4"
+          variant='h4'
         >
           Want to Help?
         </Typography>
         <Typography
-          align="center"
-          variant="body2"
+          align='center'
+          variant='body2'
         >
           Contact us to find out how!
         </Typography>
         <Box
-          display="flex"
-          justifyContent="center"
+          display='flex'
+          justifyContent='center'
           mt={2}
         >
           <Button
-            color="primary"
-            component="a"
-            href="#"
-            variant="contained"
+            color='primary'
+            component='a'
+            href='#'
+            variant='contained'
           >
             Contact Us!
           </Button>
         </Box>
       </Box>
-    </Box >
+    </Box>
   )
 
   return (
     <>
       <Hidden lgUp>
         <Drawer
-          anchor="left"
+          anchor='left'
           classes={{ paper: classes.mobileDrawer }}
           onClose={onMobileClose}
           open={openMobile}
-          variant="temporary"
+          variant='temporary'
         >
           {content}
         </Drawer>
       </Hidden>
       <Hidden mdDown>
         <Drawer
-          anchor="left"
+          anchor='left'
           classes={{ paper: classes.desktopDrawer }}
           open
-          variant="persistent"
+          variant='persistent'
         >
           {content}
         </Drawer>

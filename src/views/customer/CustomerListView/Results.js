@@ -82,13 +82,13 @@ const Results = ({ className, customers, ...rest }) => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell padding="checkbox">
+                <TableCell padding='checkbox'>
                   <Checkbox
                     checked={selectedCustomerIds.length === customers.length}
-                    color="primary"
+                    color='primary'
                     indeterminate={
-                      selectedCustomerIds.length > 0
-                      && selectedCustomerIds.length < customers.length
+                      selectedCustomerIds.length > 0 &&
+                      selectedCustomerIds.length < customers.length
                     }
                     onChange={handleSelectAll}
                   />
@@ -117,17 +117,17 @@ const Results = ({ className, customers, ...rest }) => {
                   key={customer.id}
                   selected={selectedCustomerIds.indexOf(customer.id) !== -1}
                 >
-                  <TableCell padding="checkbox">
+                  <TableCell padding='checkbox'>
                     <Checkbox
                       checked={selectedCustomerIds.indexOf(customer.id) !== -1}
                       onChange={(event) => handleSelectOne(event, customer.id)}
-                      value="true"
+                      value='true'
                     />
                   </TableCell>
                   <TableCell>
                     <Box
-                      alignItems="center"
-                      display="flex"
+                      alignItems='center'
+                      display='flex'
                     >
                       <Avatar
                         className={classes.avatar}
@@ -136,8 +136,8 @@ const Results = ({ className, customers, ...rest }) => {
                         {context.getInitials(customer.name)}
                       </Avatar>
                       <Typography
-                        color="textPrimary"
-                        variant="body1"
+                        color='textPrimary'
+                        variant='body1'
                       >
                         {customer.name}
                       </Typography>
@@ -162,7 +162,7 @@ const Results = ({ className, customers, ...rest }) => {
         </Box>
       </PerfectScrollbar>
       <TablePagination
-        component="div"
+        component='div'
         count={customers.length}
         onChangePage={handlePageChange}
         onChangeRowsPerPage={handleLimitChange}

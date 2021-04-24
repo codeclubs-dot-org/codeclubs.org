@@ -32,8 +32,8 @@ const Toolbar = ({ className, ...rest }) => {
       {...rest}
     >
       <Box
-        display="flex"
-        justifyContent="flex-end"
+        display='flex'
+        justifyContent='flex-end'
       >
         <Button className={classes.importButton}>
           Import
@@ -42,8 +42,8 @@ const Toolbar = ({ className, ...rest }) => {
           Export
         </Button>
         <Button
-          color="primary"
-          variant="contained"
+          color='primary'
+          variant='contained'
         >
           Add customer
         </Button>
@@ -56,18 +56,18 @@ const Toolbar = ({ className, ...rest }) => {
                 fullWidth
                 InputProps={{
                   startAdornment: (
-                    <InputAdornment position="start">
+                    <InputAdornment position='start'>
                       <SvgIcon
-                        fontSize="small"
-                        color="action"
+                        fontSize='small'
+                        color='action'
                       >
                         <SearchIcon />
                       </SvgIcon>
                     </InputAdornment>
                   )
                 }}
-                placeholder="Search customer"
-                variant="outlined"
+                placeholder='Search customer'
+                variant='outlined'
               />
             </Box>
           </CardContent>

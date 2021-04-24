@@ -32,15 +32,15 @@ const LoginView = () => {
   return (
     <Page
       className={classes.root}
-      title="Login"
+      title='Login'
     >
       <Box
-        display="flex"
-        flexDirection="column"
-        height="100%"
-        justifyContent="center"
+        display='flex'
+        flexDirection='column'
+        height='100%'
+        justifyContent='center'
       >
-        <Container maxWidth="sm">
+        <Container maxWidth='sm'>
           <Formik
             initialValues={{
               email: 'demo@codeclubs.org',
@@ -66,15 +66,15 @@ const LoginView = () => {
               <form onSubmit={handleSubmit}>
                 <Box mb={3}>
                   <Typography
-                    color="textPrimary"
-                    variant="h2"
+                    color='textPrimary'
+                    variant='h2'
                   >
                     Sign in
                   </Typography>
                   <Typography
-                    color="textSecondary"
+                    color='textSecondary'
                     gutterBottom
-                    variant="body2"
+                    variant='body2'
                   >
                     Sign in on the internal platform
                   </Typography>
@@ -89,12 +89,12 @@ const LoginView = () => {
                     md={6}
                   >
                     <Button
-                      color="primary"
+                      color='primary'
                       fullWidth
                       startIcon={<FacebookIcon />}
                       onClick={handleSubmit}
-                      size="large"
-                      variant="contained"
+                      size='large'
+                      variant='contained'
                     >
                       Login with Facebook
                     </Button>
@@ -108,8 +108,8 @@ const LoginView = () => {
                       fullWidth
                       startIcon={<GoogleIcon />}
                       onClick={handleSubmit}
-                      size="large"
-                      variant="contained"
+                      size='large'
+                      variant='contained'
                     >
                       Login with Google
                     </Button>
@@ -120,9 +120,9 @@ const LoginView = () => {
                   mb={1}
                 >
                   <Typography
-                    align="center"
-                    color="textSecondary"
-                    variant="body1"
+                    align='center'
+                    color='textSecondary'
+                    variant='body1'
                   >
                     or login with email address
                   </Typography>
@@ -131,50 +131,50 @@ const LoginView = () => {
                   error={Boolean(touched.email && errors.email)}
                   fullWidth
                   helperText={touched.email && errors.email}
-                  label="Email Address"
-                  margin="normal"
-                  name="email"
+                  label='Email Address'
+                  margin='normal'
+                  name='email'
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  type="email"
+                  type='email'
                   value={values.email}
-                  variant="outlined"
+                  variant='outlined'
                 />
                 <TextField
                   error={Boolean(touched.password && errors.password)}
                   fullWidth
                   helperText={touched.password && errors.password}
-                  label="Password"
-                  margin="normal"
-                  name="password"
+                  label='Password'
+                  margin='normal'
+                  name='password'
                   onBlur={handleBlur}
                   onChange={handleChange}
-                  type="password"
+                  type='password'
                   value={values.password}
-                  variant="outlined"
+                  variant='outlined'
                 />
                 <Box my={2}>
                   <Button
-                    color="primary"
+                    color='primary'
                     disabled={isSubmitting}
                     fullWidth
-                    size="large"
-                    type="submit"
-                    variant="contained"
+                    size='large'
+                    type='submit'
+                    variant='contained'
                   >
                     Sign in now
                   </Button>
                 </Box>
                 <Typography
-                  color="textSecondary"
-                  variant="body1"
+                  color='textSecondary'
+                  variant='body1'
                 >
                   Don&apost have an account?
                   {' '}
                   <Link
                     component={RouterLink}
-                    to="/register"
-                    variant="h6"
+                    to='/register'
+                    variant='h6'
                   >
                     Sign up
                   </Link>

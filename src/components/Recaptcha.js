@@ -8,7 +8,6 @@ import {
 import ReCAPTCHA from 'react-google-recaptcha'
 
 export const Component = (props) => {
-
   const [globalState, globalActions] = useGlobal()
 
   const {
@@ -16,7 +15,7 @@ export const Component = (props) => {
     config
   } = globalState.page
 
-  function onChange(event) {
+  function onChange (event) {
     globalActions.control.setForm({
       formName: 'page',
       action: 'setConfig',
@@ -33,12 +32,11 @@ export const Component = (props) => {
 
   return (
     <>
-      <span error-id="recaptcha_token"></span>
+      <span error-id='recaptcha_token' />
       {errors.recaptcha_token &&
         <Alert severity='error'>
           {errors.recaptcha_token}
-        </Alert>
-      }
+        </Alert>}
       <ReCAPTCHA
         sitekey={config.recaptcha_key}
         onChange={onChange}

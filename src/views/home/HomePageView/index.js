@@ -82,14 +82,14 @@ const Component = () => {
     <>
       <Page
         className={classes.root}
-        title="CodeClubs.org - Albuquerque NM USA - Official CodeClubs.org Website"
+        title='CodeClubs.org - Albuquerque NM USA - Official CodeClubs.org Website'
       >
         <Toolbar />
         <Container
           maxWidth={false}
           widget='Container'
         >
-          <Alert severity="error">
+          <Alert severity='error'>
             In response to COVID-19 all physical clubs are currently suspended
             until further notice. We now offer virtual courses to continue serving our
             community during the pandemic.
@@ -112,8 +112,8 @@ const Component = () => {
           </Box>
           <Box
             mt={3}
-            display="flex"
-            justifyContent="center"
+            display='flex'
+            justifyContent='center'
           >
             <Grid
               container
@@ -123,10 +123,10 @@ const Component = () => {
                 <Paper elevation={elevation} className={classes.paper}>
                   <Box
                     mt={3}
-                    display="flex"
-                    justifyContent="center"
+                    display='flex'
+                    justifyContent='center'
                   >
-                    <img src="/apple-icon-152x152.png" alt="code clubs" style={{ width: '100%' }} />
+                    <img src='/apple-icon-152x152.png' alt='code clubs' style={{ width: '100%' }} />
                   </Box>
                 </Paper>
               </Grid>

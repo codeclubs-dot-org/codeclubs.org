@@ -73,7 +73,7 @@ const LatestProducts = ({ className, ...rest }) => {
     >
       <CardHeader
         subtitle={`${products.length} in total`}
-        title="Latest Products"
+        title='Latest Products'
       />
       <Divider />
       <List>
@@ -84,7 +84,7 @@ const LatestProducts = ({ className, ...rest }) => {
           >
             <ListItemAvatar>
               <img
-                alt="Product"
+                alt='Product'
                 className={classes.image}
                 src={product.imageUrl}
               />
@@ -94,8 +94,8 @@ const LatestProducts = ({ className, ...rest }) => {
               secondary={`Updated ${product.updatedAt.fromNow()}`}
             />
             <IconButton
-              edge="end"
-              size="small"
+              edge='end'
+              size='small'
             >
               <MoreVertIcon />
             </IconButton>
@@ -104,15 +104,15 @@ const LatestProducts = ({ className, ...rest }) => {
       </List>
       <Divider />
       <Box
-        display="flex"
-        justifyContent="flex-end"
+        display='flex'
+        justifyContent='flex-end'
         p={2}
       >
         <Button
-          color="primary"
+          color='primary'
           endIcon={<ArrowRightIcon />}
-          size="small"
-          variant="text"
+          size='small'
+          variant='text'
         >
           View all
         </Button>

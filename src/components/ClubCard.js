@@ -38,35 +38,35 @@ const ClubCard = ({ className, club, ...rest }) => {
     >
       <CardContent>
         <Box
-          display="flex"
-          justifyContent="center"
+          display='flex'
+          justifyContent='center'
           mb={3}
         >
           <Avatar
-            alt="Club"
+            alt='Club'
             src={club.media}
-            variant="square"
+            variant='square'
           />
         </Box>
         <Typography
-          align="center"
-          color="textPrimary"
+          align='center'
+          color='textPrimary'
           gutterBottom
-          variant="h4"
+          variant='h4'
         >
           {club.title}
         </Typography>
         <Typography
-          align="center"
-          color="textPrimary"
-          variant="body1"
+          align='center'
+          color='textPrimary'
+          variant='body1'
         >
           {club.description}
         </Typography>
         <Typography
-          align="center"
-          color="textPrimary"
-          variant="body1"
+          align='center'
+          color='textPrimary'
+          variant='body1'
         >
           Seats Available: {club.numSeats}
         </Typography>
@@ -76,7 +76,7 @@ const ClubCard = ({ className, club, ...rest }) => {
       <Box p={2}>
         <Grid
           container
-          justify="space-between"
+          justify='space-between'
           spacing={2}
         >
           <Grid
@@ -85,12 +85,12 @@ const ClubCard = ({ className, club, ...rest }) => {
           >
             <AccessTimeIcon
               className={classes.statsIcon}
-              color="action"
+              color='action'
             />
             <Typography
-              color="textSecondary"
-              display="inline"
-              variant="body2"
+              color='textSecondary'
+              display='inline'
+              variant='body2'
             >
               Starts {club.startDate}
             </Typography>
@@ -101,12 +101,12 @@ const ClubCard = ({ className, club, ...rest }) => {
           >
             <GetAppIcon
               className={classes.statsIcon}
-              color="action"
+              color='action'
             />
             <Typography
-              color="textSecondary"
-              display="inline"
-              variant="body2"
+              color='textSecondary'
+              display='inline'
+              variant='body2'
             >
               Reg by {club.registrationDeadline}
             </Typography>

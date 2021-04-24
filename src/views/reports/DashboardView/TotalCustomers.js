@@ -43,20 +43,20 @@ const TotalCustomers = ({ className, ...rest }) => {
       <CardContent>
         <Grid
           container
-          justify="space-between"
+          justify='space-between'
           spacing={3}
         >
           <Grid item>
             <Typography
-              color="textSecondary"
+              color='textSecondary'
               gutterBottom
-              variant="h6"
+              variant='h6'
             >
               TOTAL CUSTOMERS
             </Typography>
             <Typography
-              color="textPrimary"
-              variant="h3"
+              color='textPrimary'
+              variant='h3'
             >
               1,600
             </Typography>
@@ -69,19 +69,19 @@ const TotalCustomers = ({ className, ...rest }) => {
         </Grid>
         <Box
           mt={2}
-          display="flex"
-          alignItems="center"
+          display='flex'
+          alignItems='center'
         >
           <ArrowUpwardIcon className={classes.differenceIcon} />
           <Typography
             className={classes.differenceValue}
-            variant="body2"
+            variant='body2'
           >
             16%
           </Typography>
           <Typography
-            color="textSecondary"
-            variant="caption"
+            color='textSecondary'
+            variant='caption'
           >
             Since last month
           </Typography>

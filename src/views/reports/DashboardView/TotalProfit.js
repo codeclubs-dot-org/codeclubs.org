@@ -34,20 +34,20 @@ const TotalProfit = ({ className, ...rest }) => {
       <CardContent>
         <Grid
           container
-          justify="space-between"
+          justify='space-between'
           spacing={3}
         >
           <Grid item>
             <Typography
-              color="textSecondary"
+              color='textSecondary'
               gutterBottom
-              variant="h6"
+              variant='h6'
             >
               TOTAL PROFIT
             </Typography>
             <Typography
-              color="textPrimary"
-              variant="h3"
+              color='textPrimary'
+              variant='h3'
             >
               $23,200
             </Typography>

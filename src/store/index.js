@@ -119,11 +119,11 @@ const initialState = {
 
   page: {
     config: { // This is populated from the config file for this page on initial component mount.
-      environment: environment,
+      environment: environment
     },
     form: form,
-    errors: {},
-  },
+    errors: {}
+  }
 
 }
 

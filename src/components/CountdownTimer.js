@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid } from '@material-ui/core'
 
 const calculateTimeLeft = (end) => {
-  let difference = +new Date(end) - +new Date()
+  const difference = +new Date(end) - +new Date()
 
   if (difference > 0) {
     return {
@@ -15,7 +15,7 @@ const calculateTimeLeft = (end) => {
   return 0
 }
 
-export default function Component(props) {
+export default function Component (props) {
   const { config } = props
   const [campaignTimeLeft, setCampaignTimeLeft] = React.useState(calculateTimeLeft(config.campaign_end_date))
   const [secondaryTimeLeft, setSecondaryTimeLeft] = React.useState(calculateTimeLeft(config.secondary_end_date))
@@ -28,7 +28,7 @@ export default function Component(props) {
     return () => clearTimeout(timer)
   })
 
-  const timeLeft = secondaryTimeLeft ? secondaryTimeLeft : campaignTimeLeft
+  const timeLeft = secondaryTimeLeft || campaignTimeLeft
   const message = secondaryTimeLeft ? config.secondary_end_message : ''
 
   return (
@@ -36,16 +36,16 @@ export default function Component(props) {
       <Grid container>
         {timeLeft ? <>
           <Grid item>
-            {timeLeft['days']}d{" "}
-            {timeLeft['hours']}h{" "}
-            {("0" + timeLeft['minutes']).slice(-2)}m{" "}
-            {("0" + timeLeft['seconds']).slice(-2)}s{" "}
+            {timeLeft.days}d{' '}
+            {timeLeft.hours}h{' '}
+            {('0' + timeLeft.minutes).slice(-2)}m{' '}
+            {('0' + timeLeft.seconds).slice(-2)}s{' '}
             &nbsp
           </Grid>
           <Grid item>
             {message}
           </Grid>
-        </> : <Grid item>{"This campaign has ended."}</Grid>}
+        </> : <Grid item>This campaign has ended.</Grid>}
       </Grid>
     </>
   )

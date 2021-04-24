@@ -36,20 +36,20 @@ const TasksProgress = ({ className, ...rest }) => {
       <CardContent>
         <Grid
           container
-          justify="space-between"
+          justify='space-between'
           spacing={3}
         >
           <Grid item>
             <Typography
-              color="textSecondary"
+              color='textSecondary'
               gutterBottom
-              variant="h6"
+              variant='h6'
             >
               TASKS PROGRESS
             </Typography>
             <Typography
-              color="textPrimary"
-              variant="h3"
+              color='textPrimary'
+              variant='h3'
             >
               75.5%
             </Typography>
@@ -63,7 +63,7 @@ const TasksProgress = ({ className, ...rest }) => {
         <Box mt={3}>
           <LinearProgress
             value={75.5}
-            variant="determinate"
+            variant='determinate'
           />
         </Box>
       </CardContent>

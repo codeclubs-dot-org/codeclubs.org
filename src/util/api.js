@@ -1,7 +1,7 @@
 import { API } from 'aws-amplify'
 
 const __API__ = {
-  Events: 'HomePageEvents',
+  Events: 'HomePageEvents'
 }
 
 export const getApiIdentifier = (name) => {

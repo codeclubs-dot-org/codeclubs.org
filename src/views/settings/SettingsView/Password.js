@@ -37,41 +37,41 @@ const Password = ({ className, ...rest }) => {
     >
       <Card>
         <CardHeader
-          subheader="Update password"
-          title="Password"
+          subheader='Update password'
+          title='Password'
         />
         <Divider />
         <CardContent>
           <TextField
             fullWidth
-            label="Password"
-            margin="normal"
-            name="password"
+            label='Password'
+            margin='normal'
+            name='password'
             onChange={handleChange}
-            type="password"
+            type='password'
             value={values.password}
-            variant="outlined"
+            variant='outlined'
           />
           <TextField
             fullWidth
-            label="Confirm password"
-            margin="normal"
-            name="confirm"
+            label='Confirm password'
+            margin='normal'
+            name='confirm'
             onChange={handleChange}
-            type="password"
+            type='password'
             value={values.confirm}
-            variant="outlined"
+            variant='outlined'
           />
         </CardContent>
         <Divider />
         <Box
-          display="flex"
-          justifyContent="flex-end"
+          display='flex'
+          justifyContent='flex-end'
           p={2}
         >
           <Button
-            color="primary"
-            variant="contained"
+            color='primary'
+            variant='contained'
           >
             Update
           </Button>

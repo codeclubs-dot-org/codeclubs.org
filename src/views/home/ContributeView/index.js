@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
       right: '0px',
       bottom: '0px',
       left: '0px',
-      backgroundColor: 'rgba(0,0,0)',
+      backgroundColor: 'rgba(0,0,0)'
     }
   }
 }))
@@ -55,7 +55,7 @@ const Component = () => {
     <>
       <Page
         className={classes.root}
-        title="CodeClubs.org - Albuquerque NM USA - Official CodeClubs.org Website"
+        title='CodeClubs.org - Albuquerque NM USA - Official CodeClubs.org Website'
       >
         <Toolbar />
         <Container
@@ -69,25 +69,25 @@ const Component = () => {
             >
               <Grid item xs={12} sm={9}>
                 <Paper elevation={elevation} className={classes.paper}>
-                  <Box >
+                  <Box>
                     <Typography>
                       We offer various Code Clubs at various locations throughout Albuquerque, NM.
                       These clubs are open to kids ages 11+. Club registration is ongoing, so don’t
                       feel discouraged to sign up in the middle of a semester.
-                  </Typography>
+                    </Typography>
                   </Box>
                   <Box>
                     <Typography>
                       Please note that in response to COVID-19 all physical clubs are currently suspended
                       until further notice. We now offer virtual courses to continue serving our
                       community during the pandemic. Our virtual courses are both live and recorded.
-                  </Typography>
+                    </Typography>
                   </Box>
                   <Box>
                     <Typography>
                       Once you sign up via our registration forms, you will be emailed a link to
                       join the club.  Please visit our YouTube channel for additional content.
-                  </Typography>
+                    </Typography>
                   </Box>
                 </Paper>
               </Grid>
@@ -103,8 +103,8 @@ const Component = () => {
           </Box>
           <Box
             mt={3}
-            display="flex"
-            justifyContent="center"
+            display='flex'
+            justifyContent='center'
           >
             <Grid
               container
@@ -116,7 +116,7 @@ const Component = () => {
                   <br />Youtube
                   <br />instagram
                   <br />facebook
-              </Paper>
+                </Paper>
               </Grid>
               <Grid item xs={12} sm={9}>
                 <Paper elevation={elevation} className={classes.paper}>

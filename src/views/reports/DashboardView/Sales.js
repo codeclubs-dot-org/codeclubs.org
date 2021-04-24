@@ -104,19 +104,19 @@ const Sales = ({ className, ...rest }) => {
         action={(
           <Button
             endIcon={<ArrowDropDownIcon />}
-            size="small"
-            variant="text"
+            size='small'
+            variant='text'
           >
             Last 7 days
           </Button>
         )}
-        title="Latest Sales"
+        title='Latest Sales'
       />
       <Divider />
       <CardContent>
         <Box
           height={400}
-          position="relative"
+          position='relative'
         >
           <Bar
             data={data}
@@ -126,15 +126,15 @@ const Sales = ({ className, ...rest }) => {
       </CardContent>
       <Divider />
       <Box
-        display="flex"
-        justifyContent="flex-end"
+        display='flex'
+        justifyContent='flex-end'
         p={2}
       >
         <Button
-          color="primary"
+          color='primary'
           endIcon={<ArrowRightIcon />}
-          size="small"
-          variant="text"
+          size='small'
+          variant='text'
         >
           Overview
         </Button>

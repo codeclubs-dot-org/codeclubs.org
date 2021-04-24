@@ -23,7 +23,7 @@ const rallySchema = Yup.object().shape({
     .max(10, 'Too Long!')
     .required('Required'),
   recaptcha_token: Yup.string()
-    .required('Please check the box below'),
+    .required('Please check the box below')
 })
 
 export const setPaymentSuccess = (store) => {
@@ -40,12 +40,12 @@ export const submitDonateForm = async (store, braintree_instance) => {
   let nonce
   let okToSubmit = true
 
-  let {
+  const {
     errors,
     form,
     metrics,
     spot,
-    golf,
+    golf
   } = store.state.page
 
   for (const [key] of Object.entries(errors)) {
@@ -64,7 +64,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
     if (error.message) {
       let message
       if (error.message === 'No payment method is available.') {
-        message = "Please enter a payment method below"
+        message = 'Please enter a payment method below'
       } else {
         message = error.message
       }
@@ -103,7 +103,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
     if (metric.selected === true) {
       num++
       if (!metric.value) {
-        newErrors.metric_error = "A dollar value is required for all selected items"
+        newErrors.metric_error = 'A dollar value is required for all selected items'
         okToSubmit = false
       }
     }
@@ -112,7 +112,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
     num++
   }
   if (num === 0) {
-    newErrors.metric_error = "At least one selection or one-time donation is required"
+    newErrors.metric_error = 'At least one selection or one-time donation is required'
     okToSubmit = false
   }
   if (newErrors.first_name ||
@@ -133,7 +133,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
   mergeState(store, { page: { errors: newErrors } }, true)
 
   if (okToSubmit) {
-    let payload = {
+    const payload = {
       ...store.state,
       braintree_nonce: nonce
     }
@@ -158,7 +158,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
           value: false
         })
         if (response.status === 'PAYMENT_SUCCESS') {
-          window.scrollTo({ top: 0, behavior: "smooth" })
+          window.scrollTo({ top: 0, behavior: 'smooth' })
         }
       }
     })
@@ -200,12 +200,12 @@ const setFormReducer = (store, action) => {
       }
       break
     case 'clearAll':
-      for (let key in form) {
+      for (const key in form) {
         if (form.hasOwnProperty(key)) {
           form[key] = ''
         }
       }
-      for (let key in errors) {
+      for (const key in errors) {
         if (errors.hasOwnProperty(key)) {
           errors[key] = ''
         }

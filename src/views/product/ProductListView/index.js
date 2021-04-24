@@ -30,7 +30,7 @@ const ProductList = () => {
   return (
     <Page
       className={classes.root}
-      title="Products"
+      title='Products'
     >
       <Container maxWidth={false}>
         <Toolbar />
@@ -57,13 +57,13 @@ const ProductList = () => {
         </Box>
         <Box
           mt={3}
-          display="flex"
-          justifyContent="center"
+          display='flex'
+          justifyContent='center'
         >
           <Pagination
-            color="primary"
+            color='primary'
             count={3}
-            size="small"
+            size='small'
           />
         </Box>
       </Container>

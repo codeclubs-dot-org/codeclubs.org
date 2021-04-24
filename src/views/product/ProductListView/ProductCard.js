@@ -38,28 +38,28 @@ const ProductCard = ({ className, product, ...rest }) => {
     >
       <CardContent>
         <Box
-          display="flex"
-          justifyContent="center"
+          display='flex'
+          justifyContent='center'
           mb={3}
         >
           <Avatar
-            alt="Product"
+            alt='Product'
             src={product.media}
-            variant="square"
+            variant='square'
           />
         </Box>
         <Typography
-          align="center"
-          color="textPrimary"
+          align='center'
+          color='textPrimary'
           gutterBottom
-          variant="h4"
+          variant='h4'
         >
           {product.title}
         </Typography>
         <Typography
-          align="center"
-          color="textPrimary"
-          variant="body1"
+          align='center'
+          color='textPrimary'
+          variant='body1'
         >
           {product.description}
         </Typography>
@@ -69,7 +69,7 @@ const ProductCard = ({ className, product, ...rest }) => {
       <Box p={2}>
         <Grid
           container
-          justify="space-between"
+          justify='space-between'
           spacing={2}
         >
           <Grid
@@ -78,12 +78,12 @@ const ProductCard = ({ className, product, ...rest }) => {
           >
             <AccessTimeIcon
               className={classes.statsIcon}
-              color="action"
+              color='action'
             />
             <Typography
-              color="textSecondary"
-              display="inline"
-              variant="body2"
+              color='textSecondary'
+              display='inline'
+              variant='body2'
             >
               Updated 2hr ago
             </Typography>
@@ -94,12 +94,12 @@ const ProductCard = ({ className, product, ...rest }) => {
           >
             <GetAppIcon
               className={classes.statsIcon}
-              color="action"
+              color='action'
             />
             <Typography
-              color="textSecondary"
-              display="inline"
-              variant="body2"
+              color='textSecondary'
+              display='inline'
+              variant='body2'
             >
               {product.totalDownloads}
               {' '}

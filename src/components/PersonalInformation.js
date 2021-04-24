@@ -9,7 +9,7 @@ export const Component = React.forwardRef((props, ref) => {
   const [globalState, globalActions] = useGlobal()
   const { form, errors, config } = globalState.page
 
-  function onChange(event) {
+  function onChange (event) {
     globalActions.control.setForm({
       formName: 'page',
       action: 'setConfig',

@@ -28,35 +28,35 @@ const NotFoundView = () => {
   return (
     <Page
       className={classes.root}
-      title="404"
+      title='404'
     >
       <Box
-        display="flex"
-        flexDirection="column"
-        height="100%"
-        justifyContent="center"
+        display='flex'
+        flexDirection='column'
+        height='100%'
+        justifyContent='center'
       >
-        <Container maxWidth="md">
+        <Container maxWidth='md'>
           <Typography
-            align="center"
-            color="textPrimary"
-            variant="h1"
+            align='center'
+            color='textPrimary'
+            variant='h1'
           >
             404: The page you are looking for isn’t here
           </Typography>
           <Typography
-            align="center"
-            color="textPrimary"
-            variant="subtitle2"
+            align='center'
+            color='textPrimary'
+            variant='subtitle2'
           >
             You either tried some shady route or you came here by mistake.
             Whichever it is, try using the navigation
           </Typography>
-          <Box textAlign="center">
+          <Box textAlign='center'>
             <img
-              alt="Under development"
+              alt='Under development'
               className={classes.image}
-              src="/static/images/undraw_page_not_found_su7k.svg"
+              src='/static/images/undraw_page_not_found_su7k.svg'
             />
           </Box>
         </Container>

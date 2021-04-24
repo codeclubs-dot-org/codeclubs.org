@@ -12,7 +12,7 @@ export const Component = (props) => {
   const { form, errors } = globalState.page
   const { classes } = props
 
-  function onChange(event) {
+  function onChange (event) {
     globalActions.control.setForm({
       formName: 'page',
       action: 'setConfig',
@@ -45,7 +45,7 @@ export const Component = (props) => {
           onChange={onChange}
           value={form.monthly_pledge_cap}
           error={Boolean(errors.monthly_pledge_cap)}
-          helperText={errors.monthly_pledge_cap || "Leave blank for no cap"}
+          helperText={errors.monthly_pledge_cap || 'Leave blank for no cap'}
         />
       </Grid>
     </>

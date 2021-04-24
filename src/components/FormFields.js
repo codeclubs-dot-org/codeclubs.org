@@ -74,7 +74,7 @@ export const FormFields = React.forwardRef((props, ref) => {
   const [errors, setErrors] = React.useState({})
   const [isProcessing, setIsProcessing] = React.useState(false)
 
-  let yupConfig = {
+  const yupConfig = {
     first_name: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
@@ -147,11 +147,11 @@ export const FormFields = React.forwardRef((props, ref) => {
             if (response.message) {
               setErrors({ payment_error: response.message })
             } else {
-              setErrors({ payment_error: "An error ocurred while processing your payment" })
+              setErrors({ payment_error: 'An error ocurred while processing your payment' })
             }
           } else {
             globalActions.control.setPaymentSuccess()
-            window.scrollTo({ top: 0, behavior: "smooth" })
+            window.scrollTo({ top: 0, behavior: 'smooth' })
           }
         })
         .catch((error) => {
@@ -163,7 +163,7 @@ export const FormFields = React.forwardRef((props, ref) => {
       if (error.message) {
         let message
         if (error.message === 'No payment method is available.') {
-          message = "Please enter a payment method below"
+          message = 'Please enter a payment method below'
         } else {
           message = error.message
         }
@@ -171,11 +171,10 @@ export const FormFields = React.forwardRef((props, ref) => {
       } else {
         setErrors({ payment_error: error })
       }
-
     }
   }
 
-  function StyledRadio(props) {
+  function StyledRadio (props) {
     return (
       <Radio
         className={classes.root}
@@ -190,7 +189,7 @@ export const FormFields = React.forwardRef((props, ref) => {
     )
   }
 
-  function onChange(event) {
+  function onChange (event) {
     setIsProcessing(false)
     let { name, value, checked, type } = event.target
 
@@ -220,7 +219,7 @@ export const FormFields = React.forwardRef((props, ref) => {
         donation_amount: context.formatMoney(amount)
       }
       setForm({ ...form, ...data })
-      //handle.updateConfiguration('paypal', 'amount', total_amount)
+      // handle.updateConfiguration('paypal', 'amount', total_amount)
       if (name === 'other_amount') {
         if (total_amount < 5) {
           setErrors({ ...errors, total_amount: '$5 minimum' })
@@ -233,16 +232,16 @@ export const FormFields = React.forwardRef((props, ref) => {
     }
   }
 
-  function onChangeRecaptcha(event) {
+  function onChangeRecaptcha (event) {
     setIsProcessing(false)
     setForm({ ...form, recaptcha_token: event })
   }
 
-  function onSkipSubmit(event) {
+  function onSkipSubmit (event) {
     globalActions.control.setPaymentSuccess()
   }
 
-  function onSubmit(event) {
+  function onSubmit (event) {
     setIsProcessing(true)
     Schema.validate(form, { abortEarly: false })
       .then((a) => {
@@ -609,7 +608,7 @@ export const FormFields = React.forwardRef((props, ref) => {
                   Donations are processed through our partner and will show up on credit card statements as "CaringCent".
                 </Typography>
 
-            By clicking the Submit button, you agree to our{' '}
+                By clicking the Submit button, you agree to our{' '}
                 <a href={config.terms_of_service_url} target='new'>
                   Terms of Service
                 </a>
@@ -625,7 +624,7 @@ export const FormFields = React.forwardRef((props, ref) => {
                     <br />
                     <Button variant='contained' color='primary' onClick={onSkipSubmit}>
                       Go To Thank You
-                    </Button>  {'(This goes away in Production)'}
+                    </Button>  (This goes away in Production)
                   </>}
               </Grid>
             </>} {/* End clientToken */}

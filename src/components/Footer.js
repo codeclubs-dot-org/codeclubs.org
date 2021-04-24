@@ -4,7 +4,7 @@ import {
   Grid,
   Box,
   makeStyles,
-  Typography,
+  Typography
 } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     textAlign: 'center',
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.text.primary,
+    color: theme.palette.text.primary
   }
 }))
 
@@ -40,12 +40,12 @@ const Footer = (props) => {
                   target='new'
                 >
                   Terms&nbsp;of&nbsp;Service
-            </a>&nbsp;|&nbsp;<a
+                </a>&nbsp;|&nbsp;<a
                   href='/PrivacyPolicy'
                   target='new'
-                >
+                                 >
                   Privacy
-            </a>
+                                 </a>
               </Typography>
             </Box>
           </Grid>
