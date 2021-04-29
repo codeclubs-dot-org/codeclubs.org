@@ -22,11 +22,10 @@ const rallySchema = Yup.object().shape({
     .min(5, 'Too Short!')
     .max(10, 'Too Long!')
     .required('Required'),
-  recaptcha_token: Yup.string()
-    .required('Please check the box below'),
+  recaptcha_token: Yup.string().required('Please check the box below')
 })
 
-export const setPaymentSuccess = (store) => {
+export const setPaymentSuccess = store => {
   store.setState({ status: 'PAYMENT_SUCCESS' })
 }
 
@@ -34,26 +33,20 @@ export const setPageConfig = (store, config) => {
   mergeState(store, { page: { config: config } }, true)
 }
 
-export const submitDonateForm = async (store, braintree_instance) => {
+export const submitDonateForm = async (store, braintreeInstance) => {
   const newErrors = {}
 
   let nonce
   let okToSubmit = true
 
-  let {
-    errors,
-    form,
-    metrics,
-    spot,
-    golf,
-  } = store.state.page
+  const { errors, form, metrics, spot, golf } = store.state.page
 
   for (const [key] of Object.entries(errors)) {
     newErrors[key] = ''
   }
 
   try {
-    nonce = await braintree_instance.requestPaymentMethod()
+    nonce = await braintreeInstance.requestPaymentMethod()
   } catch (error) {
     store.actions.control.setForm({
       formName: 'page',
@@ -64,7 +57,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
     if (error.message) {
       let message
       if (error.message === 'No payment method is available.') {
-        message = "Please enter a payment method below"
+        message = 'Please enter a payment method below'
       } else {
         message = error.message
       }
@@ -78,7 +71,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
   try {
     await rallySchema.validate(form, { abortEarly: false })
   } catch (err) {
-    err.inner.forEach((element) => {
+    err.inner.forEach(element => {
       newErrors[element.path] = element.message
       okToSubmit = false
     })
@@ -103,7 +96,8 @@ export const submitDonateForm = async (store, braintree_instance) => {
     if (metric.selected === true) {
       num++
       if (!metric.value) {
-        newErrors.metric_error = "A dollar value is required for all selected items"
+        newErrors.metric_error =
+          'A dollar value is required for all selected items'
         okToSubmit = false
       }
     }
@@ -112,14 +106,17 @@ export const submitDonateForm = async (store, braintree_instance) => {
     num++
   }
   if (num === 0) {
-    newErrors.metric_error = "At least one selection or one-time donation is required"
+    newErrors.metric_error =
+      'At least one selection or one-time donation is required'
     okToSubmit = false
   }
-  if (newErrors.first_name ||
+  if (
+    newErrors.first_name ||
     newErrors.last_name ||
     newErrors.email_address ||
     newErrors.street_address ||
-    newErrors.postal_code) {
+    newErrors.postal_code
+  ) {
     context.animateScrollTo('label[for="first_name"]')
   } else if (newErrors.metric_error) {
     context.animateScrollTo('[error-id="metric_error"]')
@@ -133,7 +130,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
   mergeState(store, { page: { errors: newErrors } }, true)
 
   if (okToSubmit) {
-    let payload = {
+    const payload = {
       ...store.state,
       braintree_nonce: nonce
     }
@@ -158,7 +155,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
           value: false
         })
         if (response.status === 'PAYMENT_SUCCESS') {
-          window.scrollTo({ top: 0, behavior: "smooth" })
+          window.scrollTo({ top: 0, behavior: 'smooth' })
         }
       }
     })
@@ -166,11 +163,7 @@ export const submitDonateForm = async (store, braintree_instance) => {
 }
 
 const setFormReducer = (store, action) => {
-  let {
-    form,
-    errors,
-    config
-  } = store.state[action.formName]
+  let { form, errors, config } = store.state[action.formName]
 
   if (action.name === 'recaptcha_token') {
     if (action.value === null) {
@@ -192,21 +185,21 @@ const setFormReducer = (store, action) => {
       form = { ...action.form }
       break
     case 'clear':
-      if (form.hasOwnProperty(action.name)) {
+      if (form.prototype.hasOwnProperty.call(form, action.name)) {
         form[action.name] = ''
       }
-      if (errors.hasOwnProperty(action.name)) {
+      if (errors.prototype.hasOwnProperty.call(errors, action.name)) {
         errors[action.name] = ''
       }
       break
     case 'clearAll':
-      for (let key in form) {
-        if (form.hasOwnProperty(key)) {
+      for (const key in form) {
+        if (form.prototype.hasOwnProperty.call(form, key)) {
           form[key] = ''
         }
       }
-      for (let key in errors) {
-        if (errors.hasOwnProperty(key)) {
+      for (const key in errors) {
+        if (errors.prototype.hasOwnProperty.call(errors, key)) {
           errors[key] = ''
         }
       }
@@ -226,7 +219,9 @@ const overwriteMerge = (destinationArray, sourceArray, options) => sourceArray
 
 export const mergeState = async (store, state, overwriteArray = false) => {
   if (overwriteArray) {
-    store.setState(deepmerge(store.state, state, { arrayMerge: overwriteMerge }))
+    store.setState(
+      deepmerge(store.state, state, { arrayMerge: overwriteMerge })
+    )
   } else {
     store.setState(deepmerge(store.state, state))
   }

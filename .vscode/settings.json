@@ -7,5 +7,13 @@
     "amplify/#current-cloud-backend": true,
     "amplify/backend/amplify-meta.json": true,
     "amplify/backend/awscloudformation": true
-  }
+  },
+
+  ////////////////////////
+  // StandardJS formatting
+  ////////////////////////
+
+  // Disable built-in linter
+  "javascript.validate.enable": false,
+  "javascript.format.enable": false
 }

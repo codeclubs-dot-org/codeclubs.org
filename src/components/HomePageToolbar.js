@@ -3,13 +3,9 @@ import { Link as RouterLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import useGlobal from 'store'
-import {
-  Box,
-  Button,
-  makeStyles
-} from '@material-ui/core'
+import { Box, Button, makeStyles } from '@material-ui/core'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {},
   menuButton: {
     marginRight: theme.spacing(1)
@@ -17,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
   selectedButton: {
     marginRight: theme.spacing(1),
     textDecoration: 'underline',
-    "&:hover, &:focus": {
-      textDecoration: 'underline',
+    '&:hover, &:focus': {
+      textDecoration: 'underline'
     }
   }
 }))
@@ -36,45 +32,62 @@ const Toolbar = ({ className, ...rest }) => {
       widget='HomePageToolbar'
       {...rest}
     >
-      <Box
-        display="flex"
-        justifyContent="flex-end"
-      >
-        <RouterLink to="/">
-          <Button className={path === '/' ? classes.selectedButton : classes.menuButton}>
+      <Box display='flex' justifyContent='flex-end'>
+        <RouterLink to='/'>
+          <Button
+            className={
+              path === '/' ? classes.selectedButton : classes.menuButton
+            }
+          >
             Home
           </Button>
         </RouterLink>
-        <RouterLink to="/mission">
-          <Button className={path === '/mission' ? classes.selectedButton : classes.menuButton}>
+        <RouterLink to='/mission'>
+          <Button
+            className={
+              path === '/mission' ? classes.selectedButton : classes.menuButton
+            }
+          >
             Our Mission
           </Button>
         </RouterLink>
-        {featureFlags.showContribute &&
-          <RouterLink to="/contribute">
-            <Button className={path === '/contribute' ? classes.selectedButton : classes.menuButton}>
+        {featureFlags.showContribute && (
+          <RouterLink to='/contribute'>
+            <Button
+              className={
+                path === '/contribute'
+                  ? classes.selectedButton
+                  : classes.menuButton
+              }
+            >
               Contribute
             </Button>
           </RouterLink>
-        }
-        {featureFlags.showClubRegistration &&
+        )}
+        {featureFlags.showClubRegistration && (
           <>
-            <RouterLink to="/clubs">
-              <Button className={path === '/clubs' ? classes.selectedButton : classes.menuButton}>
+            <RouterLink to='/clubs'>
+              <Button
+                className={
+                  path === '/clubs'
+                    ? classes.selectedButton
+                    : classes.menuButton
+                }
+              >
                 Clubs
               </Button>
             </RouterLink>
-            <RouterLink to="/register">
+            <RouterLink to='/register'>
               <Button
-                color="primary"
-                variant="contained"
+                color='primary'
+                variant='contained'
                 className={classes.menuButton}
               >
                 Register
               </Button>
             </RouterLink>
           </>
-        }
+        )}
       </Box>
     </div>
   )

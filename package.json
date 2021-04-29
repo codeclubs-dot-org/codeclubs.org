@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "nprogress": "^0.2.0",
+    "prettier-standard": "^16.4.1",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
     "react-chartjs-2": "^2.11.1",

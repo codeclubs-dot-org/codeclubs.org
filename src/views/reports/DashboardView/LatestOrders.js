@@ -97,62 +97,36 @@ const LatestOrders = ({ className, ...rest }) => {
   const [orders] = useState(data)
 
   return (
-    <Card
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
-      <CardHeader title="Latest Orders" />
+    <Card className={clsx(classes.root, className)} {...rest}>
+      <CardHeader title='Latest Orders' />
       <Divider />
       <PerfectScrollbar>
         <Box minWidth={800}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>
-                  Order Ref
-                </TableCell>
-                <TableCell>
-                  Customer
-                </TableCell>
-                <TableCell sortDirection="desc">
-                  <Tooltip
-                    enterDelay={300}
-                    title="Sort"
-                  >
-                    <TableSortLabel
-                      active
-                      direction="desc"
-                    >
+                <TableCell>Order Ref</TableCell>
+                <TableCell>Customer</TableCell>
+                <TableCell sortDirection='desc'>
+                  <Tooltip enterDelay={300} title='Sort'>
+                    <TableSortLabel active direction='desc'>
                       Date
                     </TableSortLabel>
                   </Tooltip>
                 </TableCell>
-                <TableCell>
-                  Status
-                </TableCell>
+                <TableCell>Status</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {orders.map((order) => (
-                <TableRow
-                  hover
-                  key={order.id}
-                >
-                  <TableCell>
-                    {order.ref}
-                  </TableCell>
-                  <TableCell>
-                    {order.customer.name}
-                  </TableCell>
+              {orders.map(order => (
+                <TableRow hover key={order.id}>
+                  <TableCell>{order.ref}</TableCell>
+                  <TableCell>{order.customer.name}</TableCell>
                   <TableCell>
                     {moment(order.createdAt).format('DD/MM/YYYY')}
                   </TableCell>
                   <TableCell>
-                    <Chip
-                      color="primary"
-                      label={order.status}
-                      size="small"
-                    />
+                    <Chip color='primary' label={order.status} size='small' />
                   </TableCell>
                 </TableRow>
               ))}
@@ -160,16 +134,12 @@ const LatestOrders = ({ className, ...rest }) => {
           </Table>
         </Box>
       </PerfectScrollbar>
-      <Box
-        display="flex"
-        justifyContent="flex-end"
-        p={2}
-      >
+      <Box display='flex' justifyContent='flex-end' p={2}>
         <Button
-          color="primary"
+          color='primary'
           endIcon={<ArrowRightIcon />}
-          size="small"
-          variant="text"
+          size='small'
+          variant='text'
         >
           View all
         </Button>

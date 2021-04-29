@@ -15,10 +15,7 @@
         {
           "category": "function",
           "resourceName": "HomePageEvents",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
+          "attributes": ["Name", "Arn"]
         }
       ]
     }

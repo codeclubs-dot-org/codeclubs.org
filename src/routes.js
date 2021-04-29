@@ -29,7 +29,7 @@ const routes = [
       { path: 'team', element: <TeamView /> },
       { path: 'products', element: <ProductListView /> },
       { path: 'settings', element: <SettingsView /> },
-      { path: '*', element: <Navigate to="/404" /> }
+      { path: '*', element: <Navigate to='/404' /> }
     ]
   },
   {
@@ -46,7 +46,7 @@ const routes = [
       { path: 'clubs', element: <ClubListView /> },
       { path: '404', element: <NotFoundView /> },
       { path: '/', element: <HomePageView /> },
-      { path: '*', element: <Navigate to="/404" /> }
+      { path: '*', element: <Navigate to='/404' /> }
     ]
   }
 ]

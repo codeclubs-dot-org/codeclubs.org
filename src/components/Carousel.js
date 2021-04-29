@@ -6,9 +6,9 @@ export default function Component (props) {
 
   return (
     <Carousel {...props}>
-      {
-        ItemList.map((item, i) => <Item key={i} item={item} />)
-      }
+      {ItemList.map((item, i) => (
+        <Item key={i} item={item} />
+      ))}
     </Carousel>
   )
 }

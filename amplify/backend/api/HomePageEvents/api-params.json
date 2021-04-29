@@ -1,35 +1,32 @@
 {
-    "paths": [
-        {
-            "name": "/event",
-            "lambdaFunction": "HomePageEvents",
-            "privacy": {
-                "open": true
-            },
-            "policyResourceName": "/event"
-        }
-    ],
-    "resourceName": "HomePageEvents",
-    "apiName": "HomePageEvents",
-    "functionArns": [
-        {
-            "lambdaFunction": "HomePageEvents"
-        }
-    ],
-    "privacy": {
-        "auth": 0,
-        "unauth": 0,
-        "authRoleName": "amplify-homepage-production-141547-authRole",
-        "unAuthRoleName": "amplify-homepage-production-141547-unauthRole"
-    },
-    "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "HomePageEvents",
-            "attributes": [
-                "Name",
-                "Arn"
-            ]
-        }
-    ]
+  "paths": [
+    {
+      "name": "/event",
+      "lambdaFunction": "HomePageEvents",
+      "privacy": {
+        "open": true
+      },
+      "policyResourceName": "/event"
+    }
+  ],
+  "resourceName": "HomePageEvents",
+  "apiName": "HomePageEvents",
+  "functionArns": [
+    {
+      "lambdaFunction": "HomePageEvents"
+    }
+  ],
+  "privacy": {
+    "auth": 0,
+    "unauth": 0,
+    "authRoleName": "amplify-homepage-production-141547-authRole",
+    "unAuthRoleName": "amplify-homepage-production-141547-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "HomePageEvents",
+      "attributes": ["Name", "Arn"]
+    }
+  ]
 }

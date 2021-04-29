@@ -1,21 +1,12 @@
 import React from 'react'
 import useGlobal from 'store'
-import {
-  Grid,
-} from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
-export const Component = (props) => {
-
+export const Component = props => {
   // eslint-disable-next-line
   const [globalState, globalActions] = useGlobal()
 
-  const {
-    status,
-    error,
-    message,
-    traceback
-  } = globalState
-
+  const { status, error, message, traceback } = globalState
 
   return (
     <>
@@ -29,13 +20,12 @@ export const Component = (props) => {
         <Grid item xs={12}>
           <h4>{message}</h4>
         </Grid>
-        {
-          process.env.NODE_ENV !== 'production' &&
+        {process.env.NODE_ENV !== 'production' && (
           <Grid item xs={12}>
             {traceback}
           </Grid>
-        }
-      </div >
+        )}
+      </div>
     </>
   )
 }
