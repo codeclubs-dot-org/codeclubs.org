@@ -9,8 +9,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     height: '100%',
     overflow: 'hidden',
-    width: '100%',
-    maxWidth: '1024px'
+    width: '100%'
   },
   wrapper: {
     display: 'flex',
