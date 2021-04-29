@@ -1,10 +1,10 @@
 import { API } from 'aws-amplify'
 
 const __API__ = {
-  Events: 'HomePageEvents',
+  Events: 'HomePageEvents'
 }
 
-export const getApiIdentifier = (name) => {
+export const getApiIdentifier = name => {
   return __API__[name]
 }
 
@@ -14,7 +14,9 @@ export const performApi = async ({
   apiPath,
   apiAction,
   apiPayload = {},
-  stateReducer = (store, response) => { store.setState({ ...response }) }
+  stateReducer = (store, response) => {
+    store.setState({ ...response })
+  }
 }) => {
   const init = {
     body: {

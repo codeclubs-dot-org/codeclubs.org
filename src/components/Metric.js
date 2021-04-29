@@ -11,7 +11,7 @@ import {
   TextField
 } from '@material-ui/core'
 
-export const Component = (props) => {
+export const Component = props => {
   const {
     classes,
     formName,
@@ -28,10 +28,10 @@ export const Component = (props) => {
     selected: false,
     text: '',
     option: '',
-    value: '',
+    value: ''
   }
 
-  function StyledRadio(props) {
+  function StyledRadio (props) {
     return (
       <Radio
         className={classes.root}
@@ -46,7 +46,7 @@ export const Component = (props) => {
     )
   }
 
-  function onChange(event) {
+  function onChange (event) {
     let { name, value, checked, type } = event.target
     if (type === 'checkbox') {
       value = checked
@@ -91,7 +91,7 @@ export const Component = (props) => {
             <Checkbox
               checked={metric.selected}
               onChange={onChange}
-              name="selected"
+              name='selected'
             />
           }
           label={label}
@@ -108,7 +108,7 @@ export const Component = (props) => {
             style={{ marginLeft: '35px' }}
           >
             <Grid container spacing={3}>
-              {Object.entries(values).map(val =>
+              {Object.entries(values).map(val => (
                 <Grid key={val[1]} item sm={2}>
                   <FormControlLabel
                     value={val[1]}
@@ -116,7 +116,7 @@ export const Component = (props) => {
                     label={val[0]}
                   />
                 </Grid>
-              )}
+              ))}
               <Grid item sm={3}>
                 <FormControlLabel
                   value='Other'
@@ -124,21 +124,21 @@ export const Component = (props) => {
                   label='Other'
                 />
               </Grid>
-              {metric.option === 'Other' &&
+              {metric.option === 'Other' && (
                 <Grid item sm={3}>
                   <TextField
                     required
                     name='value'
                     label='Other Amount'
                     fullWidth
-                    type="number"
+                    type='number'
                     onChange={onChange}
                     value={metric.value}
                     error={metric.other_error}
-                    helperText={"Required"}
+                    helperText='Required'
                   />
                 </Grid>
-              }
+              )}
             </Grid>
           </RadioGroup>
         </FormControl>

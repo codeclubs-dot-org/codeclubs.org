@@ -5,9 +5,7 @@ import useGlobal from 'store'
 
 import ReCAPTCHA from 'react-google-recaptcha'
 
-import {
-  Alert
-} from '@material-ui/lab'
+import { Alert } from '@material-ui/lab'
 
 import {
   Button,
@@ -15,26 +13,21 @@ import {
   TextField,
   Paper,
   FormLabel,
-  TextareaAutosize,
+  TextareaAutosize
 } from '@material-ui/core'
 
 export const FormFields = React.forwardRef((props, ref) => {
-
   const { classes } = props
 
   const [globalState, globalActions] = useGlobal()
 
-  const {
-    form,
-    errors,
-    config,
-  } = globalState.page
+  const { form, errors, config } = globalState.page
 
-  function onSubmit(event) {
+  function onSubmit (event) {
     globalActions.control.submitContactForm()
   }
 
-  function onChange(event) {
+  function onChange (event) {
     let { name, value, checked, type } = event.target
     if (type === 'checkbox') {
       value = checked
@@ -47,16 +40,14 @@ export const FormFields = React.forwardRef((props, ref) => {
     })
   }
 
-  function onChangeRecaptcha(event) {
-
-  }
+  function onChangeRecaptcha (event) {}
 
   return (
     <>
       <div className={classes.formfields_container}>
-        <br></br>
-        <br></br>
-        <br></br>
+        <br />
+        <br />
+        <br />
         <Paper className={clsx(classes.form_fields, classes.padded_box)}>
           <Grid container spacing={3} className={classes.padded_box}>
             <Grid item xs={12}>
@@ -139,10 +130,9 @@ export const FormFields = React.forwardRef((props, ref) => {
               />
             </Grid>
             <Grid item xs={12}>
-              {errors.recaptcha_token &&
-                <Alert severity='error'>
-                  {errors.recaptcha_token}
-                </Alert>}
+              {errors.recaptcha_token && (
+                <Alert severity='error'>{errors.recaptcha_token}</Alert>
+              )}
               <ReCAPTCHA
                 sitekey={config.recaptcha_key}
                 onChange={onChangeRecaptcha}

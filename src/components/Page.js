@@ -2,18 +2,10 @@ import React, { forwardRef } from 'react'
 import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 
-const Page = forwardRef(({
-  children,
-  title = '',
-  ...rest
-}, ref) => {
+const Page = forwardRef(({ children, title = '', ...rest }, ref) => {
   return (
     <>
-      <div
-        ref={ref}
-        {...rest}
-        widget='Page'
-      >
+      <div ref={ref} {...rest} widget='Page'>
         <Helmet>
           <title>{title}</title>
         </Helmet>

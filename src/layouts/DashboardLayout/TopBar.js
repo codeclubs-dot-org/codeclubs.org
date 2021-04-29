@@ -24,11 +24,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-const TopBar = ({
-  className,
-  onMobileNavOpen,
-  ...rest
-}) => {
+const TopBar = ({ className, onMobileNavOpen, ...rest }) => {
   const classes = useStyles()
   const [notifications] = useState([])
 
@@ -40,38 +36,35 @@ const TopBar = ({
       widget='Toolbar'
     >
       <Toolbar>
-        <RouterLink to="/">
+        <RouterLink to='/'>
           <Logo style={{ maxHeight: 50 }} />
         </RouterLink>
         <Box
-          alignItems="center"
-          display="flex"
-          flexDirection="column"
-          fontStyle="italic"
+          alignItems='center'
+          display='flex'
+          flexDirection='column'
+          fontStyle='italic'
           p={2}
         >
           Built for kids, not for profit
         </Box>
         <Box flexGrow={1} />
         <Hidden mdDown>
-          <IconButton color="inherit">
+          <IconButton color='inherit'>
             <Badge
               badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
+              color='primary'
+              variant='dot'
             >
               <NotificationsIcon />
             </Badge>
           </IconButton>
-          <IconButton color="inherit">
+          <IconButton color='inherit'>
             <InputIcon />
           </IconButton>
         </Hidden>
         <Hidden lgUp>
-          <IconButton
-            color="inherit"
-            onClick={onMobileNavOpen}
-          >
+          <IconButton color='inherit' onClick={onMobileNavOpen}>
             <MenuIcon />
           </IconButton>
         </Hidden>

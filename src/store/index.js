@@ -14,14 +14,20 @@ import {
 } from 'react-feather'
 
 import awsconfig from 'aws-exports'
-const environment = awsconfig.aws_cloud_logic_custom[0].endpoint.split('/').pop()
+const environment = awsconfig.aws_cloud_logic_custom[0].endpoint
+  .split('/')
+  .pop()
 
 const form = {
-  email_address: process.env.NODE_ENV === 'production' ? '' : `test-cc-${Math.round(Math.random() * 200)}@paulperez.net`,
+  email_address:
+    process.env.NODE_ENV === 'production'
+      ? ''
+      : `test-cc-${Math.round(Math.random() * 200)}@paulperez.net`,
   first_name: process.env.NODE_ENV === 'production' ? '' : 'Paul',
   last_name: process.env.NODE_ENV === 'production' ? '' : 'Perez',
   postal_code: process.env.NODE_ENV === 'production' ? '' : '91745',
-  street_address: process.env.NODE_ENV === 'production' ? '' : '2020 Super Nova Rd',
+  street_address:
+    process.env.NODE_ENV === 'production' ? '' : '2020 Super Nova Rd',
   recaptcha_token: '',
   monthly_pledge_cap: '',
   total_charge_amount: 0
@@ -92,10 +98,12 @@ const initialState = {
       registrationDeadline: 'Jan 11, 2021',
       startDate: 'Jan 28, 2021',
       description: 'Beginning Arduino',
-      media: 'https://codeclubs-public.s3-us-west-2.amazonaws.com/Board+Member+%2B+Facilitator+Headshots/Avatar.jpg',
+      media:
+        'https://codeclubs-public.s3-us-west-2.amazonaws.com/Board+Member+%2B+Facilitator+Headshots/Avatar.jpg',
       title: 'Intro to Arduino',
       numSeats: '7'
-    }, {
+    },
+    {
       id: uuid(),
       registrationDeadline: 'Feb 14, 2021',
       startDate: 'Feb 28, 2021',
@@ -103,7 +111,8 @@ const initialState = {
       media: '/static/images/products/product_1.png',
       title: 'Intro to Javascript',
       numSeats: '4'
-    }, {
+    },
+    {
       id: uuid(),
       registrationDeadline: 'Jan 11, 2021',
       startDate: 'Jan 28, 2021',
@@ -118,13 +127,13 @@ const initialState = {
   environment: environment,
 
   page: {
-    config: { // This is populated from the config file for this page on initial component mount.
-      environment: environment,
+    config: {
+      // This is populated from the config file for this page on initial component mount.
+      environment: environment
     },
     form: form,
-    errors: {},
-  },
-
+    errors: {}
+  }
 }
 
 const useGlobal = globalHook(React, initialState, actions)

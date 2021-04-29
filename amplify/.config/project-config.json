@@ -1,7 +1,5 @@
 {
-  "providers": [
-    "awscloudformation"
-  ],
+  "providers": ["awscloudformation"],
   "projectName": "codeclubs.org",
   "version": "3.0",
   "frontend": "javascript",

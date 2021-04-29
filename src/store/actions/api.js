@@ -4,18 +4,23 @@ const __API__ = {
   Events: 'HomePageEvents'
 }
 
-export const getApiIdentifier = (name) => {
+export const getApiIdentifier = name => {
   return __API__[name]
 }
 
-export const performApi = async (store, {
-  apiName,
-  apiPath,
-  apiAction,
-  apiPayload = {},
-  callback = (response) => { },
-  stateReducer = (store, response) => { store.actions.control.mergeState(response, true) }
-}) => {
+export const performApi = async (
+  store,
+  {
+    apiName,
+    apiPath,
+    apiAction,
+    apiPayload = {},
+    callback = response => {},
+    stateReducer = (store, response) => {
+      store.actions.control.mergeState(response, true)
+    }
+  }
+) => {
   const init = {
     body: {
       env: process.env.NODE_ENV,

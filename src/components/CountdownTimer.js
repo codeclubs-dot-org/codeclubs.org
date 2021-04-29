@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Grid } from '@material-ui/core'
 
-const calculateTimeLeft = (end) => {
-  let difference = +new Date(end) - +new Date()
+const calculateTimeLeft = end => {
+  const difference = +new Date(end) - +new Date()
 
   if (difference > 0) {
     return {
@@ -15,10 +15,14 @@ const calculateTimeLeft = (end) => {
   return 0
 }
 
-export default function Component(props) {
+export default function Component (props) {
   const { config } = props
-  const [campaignTimeLeft, setCampaignTimeLeft] = React.useState(calculateTimeLeft(config.campaign_end_date))
-  const [secondaryTimeLeft, setSecondaryTimeLeft] = React.useState(calculateTimeLeft(config.secondary_end_date))
+  const [campaignTimeLeft, setCampaignTimeLeft] = React.useState(
+    calculateTimeLeft(config.campaign_end_date)
+  )
+  const [secondaryTimeLeft, setSecondaryTimeLeft] = React.useState(
+    calculateTimeLeft(config.secondary_end_date)
+  )
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,25 +32,24 @@ export default function Component(props) {
     return () => clearTimeout(timer)
   })
 
-  const timeLeft = secondaryTimeLeft ? secondaryTimeLeft : campaignTimeLeft
+  const timeLeft = secondaryTimeLeft || campaignTimeLeft
   const message = secondaryTimeLeft ? config.secondary_end_message : ''
 
-  return (
-    <>
-      <Grid container>
-        {timeLeft ? <>
+  const gridItem = (() => {
+    if (timeLeft) {
+      return (
+        <>
           <Grid item>
-            {timeLeft['days']}d{" "}
-            {timeLeft['hours']}h{" "}
-            {("0" + timeLeft['minutes']).slice(-2)}m{" "}
-            {("0" + timeLeft['seconds']).slice(-2)}s{" "}
-            &nbsp
+            {timeLeft.days}d{timeLeft.hours}h{' '}
+            {('0' + timeLeft.minutes).slice(-2)}m{' '}
+            {('0' + timeLeft.seconds).slice(-2)}s &nbsp
           </Grid>
-          <Grid item>
-            {message}
-          </Grid>
-        </> : <Grid item>{"This campaign has ended."}</Grid>}
-      </Grid>
-    </>
-  )
+          <Grid item>{message}</Grid>
+        </>
+      )
+    }
+    return <Grid item>This campaign has ended.</Grid>
+  })()
+
+  return <Grid container>{gridItem}</Grid>
 }

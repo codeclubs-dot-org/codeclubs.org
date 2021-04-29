@@ -1,15 +1,12 @@
 import React from 'react'
-import {
-  Grid,
-  TextField
-} from '@material-ui/core'
+import { Grid, TextField } from '@material-ui/core'
 
 import useGlobal from 'store'
 export const Component = React.forwardRef((props, ref) => {
   const [globalState, globalActions] = useGlobal()
   const { form, errors, config } = globalState.page
 
-  function onChange(event) {
+  function onChange (event) {
     globalActions.control.setForm({
       formName: 'page',
       action: 'setConfig',
@@ -58,8 +55,8 @@ export const Component = React.forwardRef((props, ref) => {
           helperText={errors.last_name}
         />
       </Grid>
-      {config.SHOW_PHONE_NUMBER
-        ? <>
+      {config.SHOW_PHONE_NUMBER ? (
+        <>
           <Grid item xs={12} sm={6}>
             <TextField
               required
@@ -88,7 +85,8 @@ export const Component = React.forwardRef((props, ref) => {
             />
           </Grid>
         </>
-        : <>
+      ) : (
+        <>
           <Grid item xs={12}>
             <TextField
               required
@@ -103,7 +101,8 @@ export const Component = React.forwardRef((props, ref) => {
               helperText={errors.email_address}
             />
           </Grid>
-        </>}
+        </>
+      )}
       <Grid item xs={12} sm={7}>
         <TextField
           required

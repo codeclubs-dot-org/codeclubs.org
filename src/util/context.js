@@ -1,7 +1,7 @@
 import animateScrollTo from 'animated-scroll-to'
 
 export const context = {
-  getTimeRemaining: (endtime) => {
+  getTimeRemaining: endtime => {
     const total = Date.parse(endtime) - Date.parse(new Date())
     const seconds = Math.floor((total / 1000) % 60)
     const minutes = Math.floor((total / 1000 / 60) % 60)
@@ -16,9 +16,13 @@ export const context = {
       seconds
     }
   },
-  formatMoney: (amount, places = 2) => Number(amount).toFixed(places).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','),
-  round: (amount) => Number(amount).toFixed(2),
-  scrollToRef: (ref) => window.scrollTo(0, ref.current.offsetTop),
+  formatMoney: (amount, places = 2) =>
+    Number(amount)
+      .toFixed(places)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ','),
+  round: amount => Number(amount).toFixed(2),
+  scrollToRef: ref => window.scrollTo(0, ref.current.offsetTop),
   animateScrollTo: (selector, options) => {
     animateScrollTo(document.querySelector(selector), options)
   },
@@ -26,12 +30,15 @@ export const context = {
     if (document.querySelector(`label[for=${selector}]`)) {
       animateScrollTo(document.querySelector(`label[for=${selector}]`), options)
     } else if (document.querySelector(`input[name=${selector}]`)) {
-      animateScrollTo(document.querySelector(`input[name=${selector}]`), options)
+      animateScrollTo(
+        document.querySelector(`input[name=${selector}]`),
+        options
+      )
     } else if (document.querySelector(`input[id=${selector}]`)) {
       animateScrollTo(document.querySelector(`input[id=${selector}]`), options)
     }
   },
-  calc_fee: (amount) => {
+  calc_fee: amount => {
     return amount * 0.029 + 0.3
   },
   host: () => {
@@ -54,7 +61,7 @@ export const context = {
     if (keys1.length !== keys2.length) {
       return false
     }
-    for (let key of keys1) {
+    for (const key of keys1) {
       if (object1[key] !== object2[key]) {
         return false
       }
@@ -62,14 +69,19 @@ export const context = {
     return true
   },
   deepEqual: deepEqual,
-  isObject: (object) => {
+  isObject: object => {
     return object != null && typeof object === 'object'
   },
-  isEmpty: (obj) => {
-    for (var i in obj) return false
-    return true
+  isEmpty: obj => {
+    for (var prop in obj) {
+      if (obj.prototype.hasOwnProperty.call(obj, prop)) {
+        return false
+      }
+    }
+
+    return JSON.stringify(obj) === JSON.stringify({})
   },
-  isMetricEmpty: (metrics) => {
+  isMetricEmpty: metrics => {
     for (const metric of Object.values(metrics)) {
       if (metric.selected === true) {
         return false
@@ -82,12 +94,12 @@ export const context = {
       .replace(/\s+/, ' ')
       .split(' ')
       .slice(0, 2)
-      .map((v) => v && v[0].toUpperCase())
+      .map(v => v && v[0].toUpperCase())
       .join('')
-  },
+  }
 }
 
-function deepEqual(object1, object2) {
+function deepEqual (object1, object2) {
   const keys1 = Object.keys(object1)
   const keys2 = Object.keys(object2)
 

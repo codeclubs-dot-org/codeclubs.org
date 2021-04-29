@@ -12,7 +12,7 @@ import Page from 'components/Page'
 import Toolbar from 'components/HomePageToolbar'
 import Footer from 'components/Footer'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.background.dark,
     minHeight: '100%',
@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundImage: 'url(https://codeclubs-public.s3-us-west-2.amazonaws.com/resources/Girls%2BWho%2BCode%2BAlbuquerque.jpg)',
+    backgroundImage:
+      'url(https://codeclubs-public.s3-us-west-2.amazonaws.com/resources/Girls%2BWho%2BCode%2BAlbuquerque.jpg)',
     backgroundSize: 'cover',
     '&::before': {
       content: '""',
@@ -52,7 +53,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundImage: 'url(https://codeclubs-public.s3-us-west-2.amazonaws.com/resources/CodeClubs.jpg)',
+    backgroundImage:
+      'url(https://codeclubs-public.s3-us-west-2.amazonaws.com/resources/CodeClubs.jpg)',
     backgroundSize: 'cover',
     '&::before': {
       content: '""',
@@ -82,51 +84,40 @@ const Component = () => {
     <>
       <Page
         className={classes.root}
-        title="CodeClubs.org - Albuquerque NM USA - Official CodeClubs.org Website"
+        title='CodeClubs.org - Albuquerque NM USA - Official CodeClubs.org Website'
       >
         <Toolbar />
-        <Container
-          maxWidth={false}
-          widget='Container'
-        >
-          <Alert severity="error">
+        <Container maxWidth={false} widget='Container'>
+          <Alert severity='error'>
             In response to COVID-19 all physical clubs are currently suspended
-            until further notice. We now offer virtual courses to continue serving our
-            community during the pandemic.
+            until further notice. We now offer virtual courses to continue
+            serving our community during the pandemic.
           </Alert>
           <Box mt={3}>
-            <Grid
-              container
-              spacing={3}
-            >
+            <Grid container spacing={3}>
               <Grid item xs={12}>
                 <Paper elevation={elevation} className={classes.paper}>
                   <Box className={classes.bgImage1}>
                     <Typography className={classes.whiteText}>
-                      We are improving access to computer science education in New Mexico through fun, free, and inclusive clubs, classes, and workshops.
+                      We are improving access to computer science education in
+                      New Mexico through fun, free, and inclusive clubs,
+                      classes, and workshops.
                     </Typography>
                   </Box>
                 </Paper>
               </Grid>
             </Grid>
           </Box>
-          <Box
-            mt={3}
-            display="flex"
-            justifyContent="center"
-          >
-            <Grid
-              container
-              spacing={3}
-            >
+          <Box mt={3} display='flex' justifyContent='center'>
+            <Grid container spacing={3}>
               <Grid item xs={12} sm={3}>
                 <Paper elevation={elevation} className={classes.paper}>
-                  <Box
-                    mt={3}
-                    display="flex"
-                    justifyContent="center"
-                  >
-                    <img src="/apple-icon-152x152.png" alt="code clubs" style={{ width: '100%' }} />
+                  <Box mt={3} display='flex' justifyContent='center'>
+                    <img
+                      src='/apple-icon-152x152.png'
+                      alt='code clubs'
+                      style={{ width: '100%' }}
+                    />
                   </Box>
                 </Paper>
               </Grid>
@@ -134,9 +125,10 @@ const Component = () => {
                 <Paper elevation={elevation} className={classes.paper}>
                   <Box className={classes.bgImage2}>
                     <Typography className={classes.whiteText}>
-                      We offer various Code Clubs at various locations throughout Albuquerque, NM.
-                      These clubs are open to kids ages 11+. Club registration is ongoing, so don’t
-                      feel discouraged to sign up in the middle of a semester.
+                      We offer various Code Clubs at various locations
+                      throughout Albuquerque, NM. These clubs are open to kids
+                      ages 11+. Club registration is ongoing, so don’t feel
+                      discouraged to sign up in the middle of a semester.
                     </Typography>
                   </Box>
                 </Paper>

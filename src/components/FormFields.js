@@ -12,9 +12,7 @@ import { getApiIdentifier } from 'util/api'
 
 import faker from 'faker'
 
-import {
-  Alert
-} from '@material-ui/lab'
+import { Alert } from '@material-ui/lab'
 
 import {
   Select,
@@ -39,26 +37,32 @@ import * as Yup from 'yup'
 export const FormFields = React.forwardRef((props, ref) => {
   const { classes, config } = props
 
-  const [, globalActions] = useGlobal()
+  const [globalActions] = useGlobal()
 
   const [handle, setHandle] = React.useState()
   const [clientToken, setClientToken] = React.useState('')
   const [form, setForm] = React.useState({
-    first_name: process.env.NODE_ENV === 'production' ? '' : faker.name.firstName(),
-    last_name: process.env.NODE_ENV === 'production' ? '' : faker.name.lastName(),
-    email_address: process.env.NODE_ENV === 'production' ? '' : 'paul@caringcent.com', // faker.internet.email(),
+    firstName:
+      process.env.NODE_ENV === 'production' ? '' : faker.name.firstName(),
+    lastName:
+      process.env.NODE_ENV === 'production' ? '' : faker.name.lastName(),
+    emailAddress:
+      process.env.NODE_ENV === 'production' ? '' : 'paul@caringcent.com', // faker.internet.email(),
     amount: config.donation_initial_amount,
     other_amount: process.env.NODE_ENV === 'production' ? '' : '3',
-    phone_number: undefined,
-    street_address: process.env.NODE_ENV === 'production' ? '' : '11809 San Victorio Avenue Northeast',
-    postal_code: process.env.NODE_ENV === 'production' ? '' : '87111',
+    phoneNumber: undefined,
+    streetAddress:
+      process.env.NODE_ENV === 'production'
+        ? ''
+        : '11809 San Victorio Avenue Northeast',
+    postalCode: process.env.NODE_ENV === 'production' ? '' : '87111',
     remain_anonymous: false,
     anonymous_name: false,
     anonymous_gift: false,
     in_honor_or_memorium: false,
     in_honor: false,
     in_memory: false,
-    special_fund: '',
+    specialFund: '',
     honoree_name: '',
     honoree_special_instructions: '',
     company_will_match: false,
@@ -66,43 +70,43 @@ export const FormFields = React.forwardRef((props, ref) => {
     considering_estate_giving: false,
     already_included_estate_giving: false,
     donation_amount: context.round(config.donation_initial_amount),
-    processing_fee: context.round(context.calc_fee(config.donation_initial_amount)),
-    total_amount: context.round(config.donation_initial_amount),
+    processing_fee: context.round(
+      context.calc_fee(config.donation_initial_amount)
+    ),
+    totalAmount: context.round(config.donation_initial_amount),
     pay_processing_fee: false,
     recaptcha_token: ''
   })
   const [errors, setErrors] = React.useState({})
   const [isProcessing, setIsProcessing] = React.useState(false)
 
-  let yupConfig = {
-    first_name: Yup.string()
+  const yupConfig = {
+    firstName: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
       .required('Required'),
-    last_name: Yup.string()
+    lastName: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
       .required('Required'),
-    email_address: Yup.string()
+    emailAddress: Yup.string()
       .email('Invalid email')
       .required('Required'),
-    street_address: Yup.string()
+    streetAddress: Yup.string()
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
       .required('Required'),
-    postal_code: Yup.string()
+    postalCode: Yup.string()
       .min(5, 'Too Short!')
       .max(10, 'Too Long!')
       .required('Required'),
-    recaptcha_token: Yup.string()
-      .required('Please check the box below'),
-    total_amount: Yup.number()
-      .min(5, 'Minimum $5')
+    recaptcha_token: Yup.string().required('Please check the box below'),
+    totalAmount: Yup.number().min(5, 'Minimum $5')
   }
   // This doesnt work on blank fields. Just comment out for nowas phone is not required.
   // if (config.SHOW_PHONE_NUMBER) {
   //   const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
-  //   yupConfig.phone_number = Yup.string().matches(phoneRegExp, 'Phone number is not valid').notRequired()
+  //   yupConfig.phoneNumber = Yup.string().matches(phoneRegExp, 'Phone number is not valid').notRequired()
   // }
   const Schema = Yup.object().shape(yupConfig)
 
@@ -116,10 +120,10 @@ export const FormFields = React.forwardRef((props, ref) => {
       }
     }
     API.post(getApiIdentifier('DonateEvents'), '/event', init)
-      .then((response) => {
+      .then(response => {
         setClientToken(response.braintree_client_token)
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error)
       })
   }, [])
@@ -141,20 +145,22 @@ export const FormFields = React.forwardRef((props, ref) => {
         }
       }
       API.post(getApiIdentifier('DonateEvents'), '/event', init)
-        .then((response) => {
+        .then(response => {
           setIsProcessing(false)
           if (response.status === 'ERROR') {
             if (response.message) {
               setErrors({ payment_error: response.message })
             } else {
-              setErrors({ payment_error: "An error ocurred while processing your payment" })
+              setErrors({
+                payment_error: 'An error ocurred while processing your payment'
+              })
             }
           } else {
             globalActions.control.setPaymentSuccess()
-            window.scrollTo({ top: 0, behavior: "smooth" })
+            window.scrollTo({ top: 0, behavior: 'smooth' })
           }
         })
-        .catch((error) => {
+        .catch(error => {
           setIsProcessing(false)
           setErrors({ payment_error: error })
         })
@@ -163,7 +169,7 @@ export const FormFields = React.forwardRef((props, ref) => {
       if (error.message) {
         let message
         if (error.message === 'No payment method is available.') {
-          message = "Please enter a payment method below"
+          message = 'Please enter a payment method below'
         } else {
           message = error.message
         }
@@ -171,11 +177,10 @@ export const FormFields = React.forwardRef((props, ref) => {
       } else {
         setErrors({ payment_error: error })
       }
-
     }
   }
 
-  function StyledRadio(props) {
+  function StyledRadio (props) {
     return (
       <Radio
         className={classes.root}
@@ -190,16 +195,20 @@ export const FormFields = React.forwardRef((props, ref) => {
     )
   }
 
-  function onChange(event) {
+  function onChange (event) {
     setIsProcessing(false)
     let { name, value, checked, type } = event.target
 
     if (type === 'checkbox') {
       value = checked
     }
-    if (name === 'amount' || name === 'other_amount' || name === 'pay_processing_fee') {
+    if (
+      name === 'amount' ||
+      name === 'other_amount' ||
+      name === 'pay_processing_fee'
+    ) {
       let amount = form.amount === 'Other' ? form.other_amount : form.amount
-      let pay_fee = form.pay_processing_fee
+      let payFee = form.pay_processing_fee
       if (name === 'amount') {
         if (value === 'Other') {
           amount = form.other_amount
@@ -209,23 +218,23 @@ export const FormFields = React.forwardRef((props, ref) => {
       } else if (name === 'other_amount') {
         amount = value
       } else if (name === 'pay_processing_fee') {
-        pay_fee = value
+        payFee = value
       }
       const fee = context.calc_fee(amount)
-      const total_amount = context.round(parseFloat(amount) + (pay_fee ? fee : 0))
+      const totalAmount = context.round(parseFloat(amount) + (payFee ? fee : 0))
       const data = {
         [name]: value,
         processing_fee: context.formatMoney(fee),
-        total_amount: total_amount,
+        totalAmount: totalAmount,
         donation_amount: context.formatMoney(amount)
       }
       setForm({ ...form, ...data })
-      //handle.updateConfiguration('paypal', 'amount', total_amount)
+      // handle.updateConfiguration('paypal', 'amount', totalAmount)
       if (name === 'other_amount') {
-        if (total_amount < 5) {
-          setErrors({ ...errors, total_amount: '$5 minimum' })
+        if (totalAmount < 5) {
+          setErrors({ ...errors, totalAmount: '$5 minimum' })
         } else {
-          setErrors({ ...errors, total_amount: null })
+          setErrors({ ...errors, totalAmount: null })
         }
       }
     } else {
@@ -233,19 +242,19 @@ export const FormFields = React.forwardRef((props, ref) => {
     }
   }
 
-  function onChangeRecaptcha(event) {
+  function onChangeRecaptcha (event) {
     setIsProcessing(false)
     setForm({ ...form, recaptcha_token: event })
   }
 
-  function onSkipSubmit(event) {
+  function onSkipSubmit (event) {
     globalActions.control.setPaymentSuccess()
   }
 
-  function onSubmit(event) {
+  function onSubmit (event) {
     setIsProcessing(true)
     Schema.validate(form, { abortEarly: false })
-      .then((a) => {
+      .then(a => {
         setErrors({})
         if (form.amount === 'Other' && !form.other_amount) {
           context.scrollToRef(ref)
@@ -253,9 +262,9 @@ export const FormFields = React.forwardRef((props, ref) => {
         }
         Submit()
       })
-      .catch((err) => {
+      .catch(err => {
         const errorContainer = {}
-        err.inner.forEach((element) => {
+        err.inner.forEach(element => {
           errorContainer[element.path] = element.message
         })
         setErrors(errorContainer)
@@ -267,10 +276,9 @@ export const FormFields = React.forwardRef((props, ref) => {
     <>
       <div className={classes.formfields_container}>
         <Paper className={clsx(classes.form_fields, classes.padded_box)}>
-          {clientToken &&
+          {clientToken && (
             <>
               <Grid container spacing={6} className={classes.padded_box}>
-
                 <Grid item xs={12}>
                   <FormLabel component='legend' className={classes.form_legend}>
                     Personal Information
@@ -280,108 +288,94 @@ export const FormFields = React.forwardRef((props, ref) => {
                   <TextField
                     ref={ref}
                     required
-                    id='first_name'
-                    name='first_name'
+                    id='firstName'
+                    name='firstName'
                     label='First Name'
-                    value={form.first_name}
+                    value={form.firstName}
                     fullWidth
                     autoComplete='fname'
                     onChange={onChange}
-                    error={Boolean(errors.first_name)}
-                    helperText={errors.first_name}
+                    error={Boolean(errors.firstName)}
+                    helperText={errors.firstName}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     required
-                    id='last_name'
-                    name='last_name'
+                    id='lastName'
+                    name='lastName'
                     label='Last Name'
-                    value={form.last_name}
+                    value={form.lastName}
                     fullWidth
                     autoComplete='lname'
                     onChange={onChange}
-                    error={Boolean(errors.last_name)}
-                    helperText={errors.last_name}
+                    error={Boolean(errors.lastName)}
+                    helperText={errors.lastName}
                   />
                 </Grid>
-                {config.SHOW_PHONE_NUMBER
-                  ? <>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        required
-                        id='email_address'
-                        name='email_address'
-                        label='Email Address'
-                        value={form.email_address}
-                        fullWidth
-                        autoComplete='emailaddress'
-                        onChange={onChange}
-                        error={Boolean(errors.email_address)}
-                        helperText={errors.email_address}
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <TextField
-                        id='phone_number'
-                        name='phone_number'
-                        label='Phone Number'
-                        value={form.phone_number}
-                        fullWidth
-                        autoComplete='phone'
-                        onChange={onChange}
-                        error={Boolean(errors.phone_number)}
-                        helperText={errors.phone_number}
-                      />
-                    </Grid>
-                  </>
-                  : <>
-                    <Grid item xs={12}>
-                      <TextField
-                        required
-                        id='email_address'
-                        name='email_address'
-                        label='Email Address'
-                        value={form.email_address}
-                        fullWidth
-                        autoComplete='emailaddress'
-                        onChange={onChange}
-                        error={Boolean(errors.email_address)}
-                        helperText={errors.email_address}
-                      />
-                    </Grid>
-                  </>}
+                <Grid item xs={12} sm={config.SHOW_PHONE_NUMBER ? 6 : 0}>
+                  <TextField
+                    required
+                    id='emailAddress'
+                    name='emailAddress'
+                    label='Email Address'
+                    value={form.emailAddress}
+                    fullWidth
+                    autoComplete='emailaddress'
+                    onChange={onChange}
+                    error={Boolean(errors.emailAddress)}
+                    helperText={errors.emailAddress}
+                  />
+                </Grid>
+                {config.SHOW_PHONE_NUMBER && (
+                  <Grid item xs={12} sm={6}>
+                    <TextField
+                      id='phoneNumber'
+                      name='phoneNumber'
+                      label='Phone Number'
+                      value={form.phoneNumber}
+                      fullWidth
+                      autoComplete='phone'
+                      onChange={onChange}
+                      error={Boolean(errors.phoneNumber)}
+                      helperText={errors.phoneNumber}
+                    />
+                  </Grid>
+                )}
                 <Grid item xs={12} sm={7}>
                   <TextField
                     required
-                    id='street_address'
-                    name='street_address'
+                    id='streetAddress'
+                    name='streetAddress'
                     label='Street Address'
-                    value={form.street_address}
+                    value={form.streetAddress}
                     fullWidth
                     autoComplete='street-address'
                     onChange={onChange}
-                    error={Boolean(errors.street_address)}
-                    helperText={errors.street_address}
+                    error={Boolean(errors.streetAddress)}
+                    helperText={errors.streetAddress}
                   />
                 </Grid>
                 <Grid item xs={12} sm={5}>
                   <TextField
                     required
-                    id='postal_code'
-                    name='postal_code'
+                    id='postalCode'
+                    name='postalCode'
                     label='Postal Code'
-                    value={form.postal_code}
+                    value={form.postalCode}
                     fullWidth
                     autoComplete='postal-code'
                     onChange={onChange}
-                    error={Boolean(errors.postal_code)}
-                    helperText={errors.postal_code}
+                    error={Boolean(errors.postalCode)}
+                    helperText={errors.postalCode}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <FormControl component='fieldset'>
-                    <FormLabel component='legend' className={classes.form_legend}>
+                    <FormLabel
+                      component='legend'
+                      className={classes.form_legend}
+                    >
                       {config.donation_amount_text}
                     </FormLabel>
                     <RadioGroup
@@ -392,7 +386,7 @@ export const FormFields = React.forwardRef((props, ref) => {
                       value={form.amount}
                     >
                       <Grid container spacing={1}>
-                        {config.donation_amounts.map(amount =>
+                        {config.donation_amounts.map(amount => (
                           <Grid key={amount} item xs={6} sm={3}>
                             <FormControlLabel
                               value={amount}
@@ -400,7 +394,7 @@ export const FormFields = React.forwardRef((props, ref) => {
                               label={'$' + context.formatMoney(amount, 0)}
                             />
                           </Grid>
-                        )}
+                        ))}
                         <Grid item xs={6} sm={3}>
                           <FormControlLabel
                             value='Other'
@@ -408,7 +402,7 @@ export const FormFields = React.forwardRef((props, ref) => {
                             label='Other'
                           />
                         </Grid>
-                        {form.amount === 'Other' &&
+                        {form.amount === 'Other' && (
                           <Grid item xs={6} sm={3}>
                             <TextField
                               required
@@ -429,24 +423,29 @@ export const FormFields = React.forwardRef((props, ref) => {
                                   : '')
                               }
                             />
-                          </Grid>}
+                          </Grid>
+                        )}
                         <Grid item xs={12}>
-                          {errors.total_amount
-                            ? <>
+                          {errors.totalAmount ? (
+                            <>
                               <Alert severity='error'>
-                                {errors.total_amount}
+                                {errors.totalAmount}
                               </Alert>
                             </>
-                            : <>
-                              <FormHelperText>There is a $5 minimum donation.</FormHelperText>
-                            </>}
+                          ) : (
+                            <>
+                              <FormHelperText>
+                                There is a $5 minimum donation.
+                              </FormHelperText>
+                            </>
+                          )}
                         </Grid>
                       </Grid>
                     </RadioGroup>
                   </FormControl>
                 </Grid>
                 <Grid item xs={12}>
-                  {config.SHOW_PAY_PROCESSING_FEE &&
+                  {config.SHOW_PAY_PROCESSING_FEE && (
                     <FormControlLabel
                       control={
                         <Checkbox
@@ -457,62 +456,80 @@ export const FormFields = React.forwardRef((props, ref) => {
                           value='pay_processing_fee'
                         />
                       }
-                      label={config.PAY_PROCESSING_FEE_TEXT + ' of $' + form.processing_fee}
-                    />} {/* END SHOW_PAY_PROCESSING_FEE */}
+                      label={
+                        config.PAY_PROCESSING_FEE_TEXT +
+                        ' of $' +
+                        form.processing_fee
+                      }
+                    />
+                  )}{' '}
+                  {/* END SHOW_PAY_PROCESSING_FEE */}
                 </Grid>
-                {config.special_fund &&
+                {config.specialFund && (
                   <>
                     <Grid item xs={12} md={6}>
                       <FormControl className={classes.specialFund}>
-                        <FormLabel component='legend' className={classes.form_legend}>
+                        <FormLabel
+                          component='legend'
+                          className={classes.form_legend}
+                        >
                           I would like my donation to go to the following fund:
                         </FormLabel>
 
                         <Select
-                          id='special_fund'
-                          name='special_fund'
-                          value={form.special_fund}
+                          id='specialFund'
+                          name='specialFund'
+                          value={form.specialFund}
                           onChange={onChange}
                         >
-                          {
-
-                            config.special_fund.map(item => {
-                              return <MenuItem value={item}>{item}</MenuItem>
-                            })
-                          }
+                          {config.specialFund.map(item => (
+                            <MenuItem key={item} value={item}>
+                              {item}
+                            </MenuItem>
+                          ))}
                         </Select>
                       </FormControl>
                     </Grid>
                     <Grid item xs={12} md={6} />
-                  </>}
+                  </>
+                )}
                 <Grid item xs={12}>
-                  {errors.payment_error &&
-                    <Alert severity='error'>
-                      {errors.payment_error}
-                    </Alert>}
+                  {errors.payment_error && (
+                    <Alert severity='error'>{errors.payment_error}</Alert>
+                  )}
                   <DropIn
                     options={{
                       authorization: clientToken,
                       card: {},
                       // paypal : {
                       //   flow: 'checkout',
-                      //   amount: form.total_amount,
+                      //   amount: form.totalAmount,
                       //   currency: 'USD'
                       // },
                       dataCollector: {
-                        kount: { environment: process.env.NODE_ENV === 'production' ? 'production' : 'sandbox' }
+                        kount: {
+                          environment:
+                            process.env.NODE_ENV === 'production'
+                              ? 'production'
+                              : 'sandbox'
+                        }
                       }
                     }}
                     onInstance={setHandle}
-                    onChange={() => { setErrors({ ...errors, ...{ payment_error: null } }) }}
+                    onChange={() => {
+                      setErrors({ ...errors, ...{ payment_error: null } })
+                    }}
                   />
                 </Grid>
               </Grid>
               <Grid item xs={12} className={classes.padded_box}>
-                <FormControl component='fieldset' className={classes.formControl}>
+                <FormControl
+                  component='fieldset'
+                  className={classes.formControl}
+                >
                   <FormLabel component='legend' />
                   <FormGroup>
-                    {config.SHOW_REMAIN_ANONYMOUS &&
+                    {config.SHOW_REMAIN_ANONYMOUS && (
                       <div>
                         <FormControlLabel
                           control={
@@ -526,7 +543,7 @@ export const FormFields = React.forwardRef((props, ref) => {
                           }
                           label='I would like to remain anonymous.'
                         />
-                        {form.remain_anonymous &&
+                        {form.remain_anonymous && (
                           <div>
                             <FormControlLabel
                               className={classes.indented}
@@ -554,10 +571,12 @@ export const FormFields = React.forwardRef((props, ref) => {
                               }
                               label='I would like my to name to be anonymous.'
                             />
-                          </div>}
-                      </div>} {/* END SHOW_REMAIN_ANONYMOUS */}
-
-                    {config.SHOW_IN_MEMORY_OF &&
+                          </div>
+                        )}
+                      </div>
+                    )}{' '}
+                    {/* END SHOW_REMAIN_ANONYMOUS */}
+                    {config.SHOW_IN_MEMORY_OF && (
                       <div>
                         <FormControlLabel
                           control={
@@ -571,7 +590,7 @@ export const FormFields = React.forwardRef((props, ref) => {
                           }
                           label='My gift is in honor or memory of someone.'
                         />
-                        {form.in_honor_or_memorium &&
+                        {form.in_honor_or_memorium && (
                           <TextField
                             className={classes.indented}
                             id='honoree_name'
@@ -580,21 +599,19 @@ export const FormFields = React.forwardRef((props, ref) => {
                             fullWidth
                             onChange={onChange}
                             value={form.honoree_name}
-                            error={
-                              Boolean(errors.honoree_name)
-                            }
-                            helperText={
-                              errors.honoree_name
-                            }
-                          />}
-                      </div>} {/* END SHOW_IN_MEMORY_OF */}
+                            error={Boolean(errors.honoree_name)}
+                            helperText={errors.honoree_name}
+                          />
+                        )}
+                      </div>
+                    )}{' '}
+                    {/* END SHOW_IN_MEMORY_OF */}
                   </FormGroup>
                 </FormControl>
                 <br />
-                {errors.recaptcha_token &&
-                  <Alert severity='error'>
-                    {errors.recaptcha_token}
-                  </Alert>}
+                {errors.recaptcha_token && (
+                  <Alert severity='error'>{errors.recaptcha_token}</Alert>
+                )}
                 <ReCAPTCHA
                   sitekey={config.recaptcha_key}
                   onChange={onChangeRecaptcha}
@@ -602,33 +619,44 @@ export const FormFields = React.forwardRef((props, ref) => {
               </Grid>
 
               <Grid item xs={12} className={classes.padded_box}>
-                <Typography
-                  variant='body1'
-                  paragraph
-                >
-                  Donations are processed through our partner and will show up on credit card statements as "CaringCent".
+                <Typography variant='body1' paragraph>
+                  Donations are processed through our partner and will show up
+                  on credit card statements as "CaringCent".
                 </Typography>
-
-            By clicking the Submit button, you agree to our{' '}
+                By clicking the Submit button, you agree to our{' '}
                 <a href={config.terms_of_service_url} target='new'>
                   Terms of Service
                 </a>
               </Grid>
               <Grid item xs={12} className={classes.padded_box}>
-                {clientToken &&
-                  <Button variant='contained' color='primary' onClick={onSubmit} disabled={isProcessing}>
+                {clientToken && (
+                  <Button
+                    variant='contained'
+                    color='primary'
+                    onClick={onSubmit}
+                    disabled={isProcessing}
+                  >
                     {isProcessing ? 'Processing...' : 'Submit'}
-                  </Button>}
-                {process.env.NODE_ENV === 'development' &&
+                  </Button>
+                )}
+                {process.env.NODE_ENV === 'development' && (
                   <>
                     <br />
                     <br />
-                    <Button variant='contained' color='primary' onClick={onSkipSubmit}>
+                    <Button
+                      variant='contained'
+                      color='primary'
+                      onClick={onSkipSubmit}
+                    >
                       Go To Thank You
-                    </Button>  {'(This goes away in Production)'}
-                  </>}
+                    </Button>{' '}
+                    (This goes away in Production)
+                  </>
+                )}
               </Grid>
-            </>} {/* End clientToken */}
+            </>
+          )}{' '}
+          {/* End clientToken */}
         </Paper>
       </div>
     </>
