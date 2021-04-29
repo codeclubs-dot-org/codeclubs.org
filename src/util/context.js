@@ -73,7 +73,7 @@ export const context = {
     return object != null && typeof object === 'object'
   },
   isEmpty: obj => {
-    for (var prop in obj) {
+    for (const prop in obj) {
       if (obj.prototype.hasOwnProperty.call(obj, prop)) {
         return false
       }
