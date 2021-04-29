@@ -1,12 +1,8 @@
 import React from 'react'
 import {
-  Box,
-  Container,
-  Grid,
   makeStyles
 } from '@material-ui/core'
 import Page from 'components/Page'
-import Toolbar from 'components/HomePageToolbar'
 
 const useStyles = makeStyles((theme) => ({
   root: {
