@@ -13,12 +13,16 @@ const theme = createMuiTheme({
       main: '#ADDE4F'
     },
     secondary: {
-      main: colors.indigo[500]
+      main: '#2C4961'
     },
     text: {
       primary: colors.blueGrey[900],
-      secondary: colors.blueGrey[600]
+      secondary: colors.common.white
     }
+  },
+  fontFamily: {
+    sans: '"Roboto Slab", sans',
+    display: '"Roboto Mono", monospace'
   },
   shadows,
   typography
